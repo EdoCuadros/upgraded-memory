@@ -1,5 +1,5 @@
 class Persona:
-    def __init__(self,Id, nombre, apellido , ident, email, password, foto, telefono):
+    def __init__(self, Id, nombre, apellido, ident, email, password, foto, telefono):
         self.__id = Id
         self.__nombre = nombre
         self.__apellido = apellido
@@ -59,10 +59,12 @@ class Persona:
         def setTelefono(self, telefono):
             self.__Telefono = telefono
 
+    #Metodo toString
+
     def __str__(self):
         return (super().__str__() + "Nombre: " + self.getNombre() + "\n"
                 + "Apellido: " + self.getApellido() + "\n"
                 + "Clave de acceso: " + self.getClave() + "\n" + "Correo: "
                 + self.getCorreo() + "\n" + "Identificacion: "
-                + self.getIdentificacion() + "\n" + "Id Usuario: "
-                + self.getID() + "\n" + "Telefono: " + self.getTelefono())
+                + str(self.getIdentificacion()) + "\n" + "Id Usuario: "
+                + str(self.getID()) + "\n" + "Telefono: " + str(self.getTelefono()))
