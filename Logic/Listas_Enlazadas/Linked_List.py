@@ -122,6 +122,20 @@ class DLinkedList(object):
     def isEmpty(self):
         return self.head is None
 
+    def searchElement(self,data):
+        nodo = self.head
+        while nodo.dato != data:
+            #print(nodo.dato)
+            nodo = nodo.next
+            #print(self.tail)
+            if(nodo == self.tail):
+                if(nodo.dato==data):
+                    return nodo.dato
+                else:
+                    return "!Not Found Element¡"
+
+        return nodo.dato
+
     def __str__(self):
         node = self.head
         while node != None:
@@ -134,5 +148,9 @@ class DLinkedList(object):
 listas.append(2)
 listas.append(3)
 listas.append(4)
-listas.__str__()"""
-
+listas.append(6)
+listas.append(7)
+listas.append(8)
+listas.__str__()
+element = listas.searchElement(7)
+print(element)"""
