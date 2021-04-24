@@ -81,6 +81,7 @@ class DLinkedList(object):
     def __init__(self):
         self.head = None
         self.tail = None
+        self.__size = 0
 
     def pushFront(self, data):
         new_node = nodeD(data, None, self.head)
@@ -94,22 +95,29 @@ class DLinkedList(object):
 
     def append(self,data):
         new_node = nodeD(data, None, None)
+        self.__size += 1
         if (self.tail == None):
             self.tail = new_node
-            node.prev = None
+            self.head = new_node
         else:
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
     def pop(self):
+
         if(self.head==None):
             print("Error!!! Empty List")
         if (self.head==self.tail):
+            self.__size -= 1
             self.tail = None
             self.head = None
         else:
+            self.__size -= 1
             self.tail = self.tail.prev
             self.tail.next = None
+
+    def getSize(self):
+        return self.__size
 
     def isEmpty(self):
         return self.head is None
@@ -117,10 +125,14 @@ class DLinkedList(object):
     def __str__(self):
         node = self.head
         while node != None:
-            print(node.dato, end=" ")
+            print(node.dato)
             node = node.next
 
 
 
-
+"""listas =DLinkedList()
+listas.append(2)
+listas.append(3)
+listas.append(4)
+listas.__str__()"""
 
