@@ -12,27 +12,22 @@ if __name__ == '__main__':
     with open(path) as archivo_data:
         entrada = csv.reader(archivo_data)
         result = list(entrada)
-    clientes = DLinkedList()
-    baseDatos = BaseDatos()
-    clientes2 = DLinkedList()
 
-    for data in result[1:]:
-        #baseDatos.setCliente(data)
-        cliente = Cliente(data[0], data[1], data[2], data[3], data[4], data[5],"", data[6], data[7])
-        clientes.append(cliente)
+    baseDatos = BaseDatos()
     inicio = time.time()
     baseDatos.ListaClientes(result[1:])
     listaClientes = baseDatos.getLista()
 
-    #inicio1 = time.time()
-    listaClientes.__str__()
+
+    #listaClientes.__str__()
     fin = time.time()
-    #fin1 = time.time()
-    elemento = baseDatos.getCliente().getIdentificacion()
-    print(elemento)
-    print(fin - inicio)
-    #print(fin1 - inicio1)
-    print(listaClientes.getSize())
-    listaClientes.pop()
-    print(listaClientes.getSize())
+    print("Tiempo:",fin - inicio,"segundos")
+
+    print(baseDatos.searchCliente("7548496001"))
+    print(baseDatos.searchCliente("2266717308"))
+    print(baseDatos.searchCliente("1"))
+
+
+
+
 

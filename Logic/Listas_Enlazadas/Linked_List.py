@@ -103,8 +103,7 @@ class DLinkedList(object):
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
-    def pop(self):
-
+    def popBack(self):
         if(self.head==None):
             print("Error!!! Empty List")
         if (self.head==self.tail):
@@ -116,6 +115,9 @@ class DLinkedList(object):
             self.tail = self.tail.prev
             self.tail.next = None
 
+    #def pop(self, data):
+
+
     def getSize(self):
         return self.__size
 
@@ -125,16 +127,13 @@ class DLinkedList(object):
     def searchElement(self,data):
         nodo = self.head
         while nodo.dato != data:
-            #print(nodo.dato)
             nodo = nodo.next
-            #print(self.tail)
             if(nodo == self.tail):
                 if(nodo.dato==data):
                     return nodo.dato
                 else:
                     return "!Not Found Element¡"
-
-        return nodo.dato
+        return nodo
 
     def __str__(self):
         node = self.head
