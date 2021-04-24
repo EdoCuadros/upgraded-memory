@@ -21,7 +21,14 @@ class BaseDatos:
             self.setCliente(data)
             self.__lista.append(self.getCliente())
 
-    def searchCliente(self,id):
+    def delete(self,id):
+        element = self.search(id)
+        self.__lista.pop(element)
+
+    def existIdentificacion(self,id):
+        return self.search(id) != "!Not Found Client¡"
+
+    def search(self,id):
         nodo = self.__lista.head
         while nodo.dato.getIdentificacion() != id:
             nodo = nodo.next
@@ -30,7 +37,6 @@ class BaseDatos:
                     return nodo.dato
                 else:
                     return "!Not Found Client¡"
-
         return nodo.dato
 
 

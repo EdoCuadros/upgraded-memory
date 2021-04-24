@@ -14,20 +14,28 @@ if __name__ == '__main__':
         result = list(entrada)
 
     baseDatos = BaseDatos()
-    inicio = time.time()
-    baseDatos.ListaClientes(result[1:])
-    listaClientes = baseDatos.getLista()
 
+    baseDatos.ListaClientes(result[1:])
+    inicio = time.time()
+    listaClientes = baseDatos.getLista()
+    fin = time.time()
 
     #listaClientes.__str__()
-    fin = time.time()
+
     print("Tiempo:",fin - inicio,"segundos")
 
-    print(baseDatos.searchCliente("7548496001"))
-    print(baseDatos.searchCliente("2266717308"))
-    print(baseDatos.searchCliente("1"))
+    print(baseDatos.search("7548496001"))
+    print(baseDatos.search("2266717308"))
+    print(baseDatos.search("1"))
 
-
+    print(baseDatos.existIdentificacion("7548496001"))
+    print(baseDatos.existIdentificacion("2266717308"))
+    baseDatos.delete("8507040586")
+    baseDatos.delete("5031533900")
+    baseDatos.delete("8787556340")
+    print(baseDatos.existIdentificacion("8787556340"))
+    #listaClientes.__str__()
+    print(baseDatos.getLista().getSize())
 
 
 
