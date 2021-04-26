@@ -5,37 +5,117 @@ from Logic.base_datos import *
 
 
 
+def listaArchivo(path,index):
+    with open(path[index]) as archivo_data:
+        entrada = csv.reader(archivo_data)
+        results = list(entrada)
+    return results
+def consultar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    inicio = time.time()
+    client = baseDatos.search(ident)
+
+    print(client)
+    fin = time.time()
+    print("Tiempo:", fin - inicio, "segundos")
+
+def loginAdministrador(baseDatos):
+    while True:
+        print("******* Menú ********")
+        print("")
+        print("1. Consultar")
+        print("2. Actualizar")
+        print("3. Eliminar")
+        print("4. Buscar Cliente")
+        print("5. Ver todos los clientes")
+        print("6. Volver")
+        try:
+            opcion = input("Opción: ")
+            if(opcion=="1"):
+                consultar(baseDatos)
+            elif(opcion=="2"):pass
+            elif(opcion=="3"):pass
+            elif (opcion == "4"):pass
+            elif (opcion == "5"):pass
+            elif (opcion == "6"):
+                break
+        except Exception as e:
+            print("Error : Ingrese una opción válida")
+
+
+
+def inicio(baseDatos):
+
+    listaClientes = baseDatos.getLista()
+    print(baseDatos.search("259564204"))
+    while (True):
+        try:
+            d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
+            if d1 == "1":
+                while True:
+                    usuario_id = input("Ingrese por favor su identificación: ")
+                    if (baseDatos.existIdentificacion(usuario_id)):
+                        cliente = baseDatos.search(usuario_id)
+                        break
+                    else: print("!Not Found Client¡\n")
+                while True:
+                    contraseña = input("Contraseña: ")
+                    if(cliente.getPassword() == contraseña):
+                        loginAdministrador(baseDatos)
+                        break
+                    else: print("Contraseña Incorrecta\n")
+                # Aqui va el metodo para buscar el cliente en la base de datos
+
+            elif d1 == "2":
+
+                nombre = input("Digite su nombre: ")
+                apellido = input("Digite su apellido completo: ")
+                cedula = input("Digite su cedula: ")
+                correo = input("Digite su dirección de correo electrónico: ")
+                telefono = input("Digite su numero de telefono: ")
+                direccion = input("Digite su dirección de vivienda: ")
+                password = input("Digite su contraseña: ")
+                id_1=int(baseDatos.getCliente().getId())
+                c1 = Cliente(id_1+1, nombre, apellido, cedula, correo, password, "12123.jpg", telefono, direccion)
+                print("Registro realizado exitosamente")
+                print(c1)
+                # Aqui va el metodo para crear el cliente en la base de datos
+
+                listaClientes.append(c1)
+                listaClientes.__str__()
+            elif(d1 == "3"):
+                break
+            else:
+                print("Error : Ingrese una opción válida")
+        except Exception as e:
+            print(e ,"Error ingrese una opción válida")
 
 
 if __name__ == '__main__':
-    path = "./Resources/MOCK_DATA (1).csv"
-    with open(path) as archivo_data:
-        entrada = csv.reader(archivo_data)
-        result = list(entrada)
+    path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data100mil_1.csv",
+            "./Resources/data100mil_2.csv", "./Resources/data100mil_3.csv",
+            "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_6.csv",
+            "./Resources/data100mil_7.csv"]
 
+    results = []
+    results = listaArchivo(path, 1)
+    results.pop(len(results) - 1)
+    """results = listaArchivo(path,2)
+    results.pop(len(results)-1)
+    results.extend(listaArchivo(path,3))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 5))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 6))
+    results.pop(len(results) - 1)"""
+
+
+    print(len(results))
+    clientes = DLinkedList()
     baseDatos = BaseDatos()
+    baseDatos.ListaClientes(results)
 
-    baseDatos.ListaClientes(result[1:])
-    inicio = time.time()
-    listaClientes = baseDatos.getLista()
-    fin = time.time()
-
-    #listaClientes.__str__()
-
-    print("Tiempo:",fin - inicio,"segundos")
-
-    print(baseDatos.search("7548496001"))
-    print(baseDatos.search("2266717308"))
-    print(baseDatos.search("1"))
-
-    print(baseDatos.existIdentificacion("7548496001"))
-    print(baseDatos.existIdentificacion("2266717308"))
-    baseDatos.delete("8507040586")
-    baseDatos.delete("5031533900")
-    baseDatos.delete("8787556340")
-    print(baseDatos.existIdentificacion("8787556340"))
-    #listaClientes.__str__()
-    print(baseDatos.getLista().getSize())
-
-
+    inicio(baseDatos)
 

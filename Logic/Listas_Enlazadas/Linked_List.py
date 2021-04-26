@@ -78,6 +78,7 @@ class linked_List(object):
 
 
 class DLinkedList(object):
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -103,6 +104,7 @@ class DLinkedList(object):
             self.tail.next = new_node
             new_node.prev = self.tail
             self.tail = new_node
+
     def popBack(self):
         if(self.head==None):
             print("Error!!! Empty List")

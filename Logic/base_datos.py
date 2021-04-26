@@ -9,7 +9,8 @@ class BaseDatos:
 
     def getCliente(self):
         return self.__cliente
-
+    def setCliente1(self,cliente):
+        self.__lista.append(cliente)
     def setCliente(self,data):
         self.__cliente=Cliente(data[0], data[1], data[2], data[3], data[4], data[5],"foto", data[6], data[7])
 
@@ -23,10 +24,21 @@ class BaseDatos:
 
     def delete(self,id):
         element = self.search(id)
-        self.__lista.pop(element)
+        if(element!="!Not Found Client¡"):
+            self.__lista.pop(element)
 
     def existIdentificacion(self,id):
         return self.search(id) != "!Not Found Client¡"
+
+    def actualizarCliente(self,Nombre, Apellido, identificacion, correo, password, telefono, direccion):
+        aux = self.search(identificacion)
+        aux.setNombre(Nombre)
+        aux.setApellido(Apellido)
+        aux.setIdentificacion(identificacion)
+        aux.setCorreo(correo)
+        aux.setPassword(password)
+        aux.setTelefono(telefono)
+        aux.setDireccion(direccion)
 
     def search(self,id):
         nodo = self.__lista.head

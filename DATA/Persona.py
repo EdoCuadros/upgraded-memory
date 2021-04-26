@@ -51,5 +51,5 @@ class Persona:
 
     def __str__(self) -> str:
         return "  >>ID: " + str(self.getId()) + "  >>Nombre: " + self.getNombre()+ " "+ self.getApellido() + \
-               " >>Identificación: " + str(self.getIdentificacion()) + "  >>Correo: " + self.getCorreo() + \
+               "  >>Identificación: " + str(self.getIdentificacion()) + "  >>Password: "+self.getPassword()+"  >>Correo: " + self.getCorreo() + \
                "  >>Teléfono: " + str(self.getTelefono())
