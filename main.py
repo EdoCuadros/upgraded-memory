@@ -10,6 +10,35 @@ def listaArchivo(path,index):
         entrada = csv.reader(archivo_data)
         results = list(entrada)
     return results
+
+def actualizar(baseDatos):
+    while True:
+        ident = input("Ingrese la identificación del usuario a actualizar: ")
+        if (baseDatos.existIdentificacion(ident)):
+            client = baseDatos.search(ident)
+            nombre = input("Digite su nombre: ")
+            apellido = input("Digite su apellido completo: ")
+            cedula = input("Digite su cedula: ")
+            correo = input("Digite su dirección de correo electrónico: ")
+            telefono = input("Digite su numero de telefono: ")
+            direccion = input("Digite su dirección de vivienda: ")
+            password = input("Digite su contraseña: ")
+
+            client.setNombre(nombre)
+            client.setApellido(apellido)
+            client.setIdentificacion(cedula)
+            client.setCorreo(correo)
+            client.setPassword(password)
+            client.setTelefono(telefono)
+            client.setDireccion(direccion)
+            print("!!!!!!!Actualizado con Exitó¡¡¡¡¡")
+            break
+        else:
+            print("!Not Found Client¡\n")
+
+
+
+
 def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
@@ -18,6 +47,19 @@ def consultar(baseDatos):
     print(client)
     fin = time.time()
     print("Tiempo:", fin - inicio, "segundos")
+
+
+def eliminar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    client = baseDatos.search(ident)
+    print(client)
+    baseDatos.delete(ident)
+    print("Eliminado con exitó")
+
+def buscar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    client = baseDatos.search(ident)
+    print(client)
 
 def loginAdministrador(baseDatos):
     while True:
@@ -33,10 +75,10 @@ def loginAdministrador(baseDatos):
             opcion = input("Opción: ")
             if(opcion=="1"):
                 consultar(baseDatos)
-            elif(opcion=="2"):pass
-            elif(opcion=="3"):pass
-            elif (opcion == "4"):pass
-            elif (opcion == "5"):pass
+            elif(opcion=="2"): actualizar(baseDatos)
+            elif(opcion=="3"): eliminar(baseDatos)
+            elif (opcion == "4"): buscar(baseDatos)
+            elif (opcion == "5"): baseDatos.getLista().__str__()
             elif (opcion == "6"):
                 break
         except Exception as e:
