@@ -151,25 +151,28 @@ def inicio(baseDatos):
 
 
 if __name__ == '__main__':
-    path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data100mil_1.csv",
+    path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data50mil.csv","./Resources/data100mil_1.csv",
             "./Resources/data100mil_2.csv", "./Resources/data100mil_3.csv",
             "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_6.csv",
-            "./Resources/data100mil_7.csv"]
+            "./Resources/data100mil_7.csv","./Resources/data100mil_8.csv"]
 
+    #453993804    pass = SzlKfkZOt9LTv5DACfLL  -> 200mil
+    #266943344    pass= fKOCuOa2dxnBsI5hWFcv -> 400mil
     results = []
-    results = listaArchivo(path, 1)
+    results = listaArchivo(path, 3)
     results.pop(len(results) - 1)
-    """results = listaArchivo(path,2)
-    results.pop(len(results)-1)
-    results.extend(listaArchivo(path,3))
-    results.pop(len(results) - 1)
-    results.extend(listaArchivo(path, 4))
+    #results = listaArchivo(path,4)
+    #results.pop(len(results)-1)
+    results.extend(listaArchivo(path,4))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 5))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 6))
-    results.pop(len(results) - 1)"""
-
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 7))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 10))
+    results.pop(len(results) - 1)
 
     print(len(results))
     clientes = DLinkedList()
