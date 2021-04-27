@@ -46,7 +46,6 @@ def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
     client = baseDatos.search(ident)
-
     print(client)
     fin = time.time()
     print("Tiempo:", fin - inicio, "segundos")
@@ -99,7 +98,7 @@ def loginAdministrador(baseDatos):
 def inicio(baseDatos):
 
     listaClientes = baseDatos.getLista()
-    print(baseDatos.search("847017709"))
+    print(baseDatos.search("692918210"))
     while (True):
         try:
             d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
@@ -138,9 +137,11 @@ def inicio(baseDatos):
                 print("Registro realizado exitosamente")
                 print(c1)
                 # Aqui va el metodo para crear el cliente en la base de datos
-
+                inicio = time.time()
                 listaClientes.append(c1)
+                fin = time.time()
                 listaClientes.__str__()
+                print("Tiempo:", fin - inicio, "segundos")
             elif(d1 == "3"):
                 break
             else:
@@ -156,7 +157,7 @@ if __name__ == '__main__':
             "./Resources/data100mil_7.csv"]
 
     results = []
-    results = listaArchivo(path, 0)
+    results = listaArchivo(path, 1)
     results.pop(len(results) - 1)
     """results = listaArchivo(path,2)
     results.pop(len(results)-1)

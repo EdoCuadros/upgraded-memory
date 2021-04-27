@@ -45,6 +45,7 @@ class BaseDatos:
         aux.setDireccion(direccion)
 
     def search(self,id):
+        inicio = time.time()
         nodo = self.__lista.head
         while nodo.dato.getIdentificacion() != id:
             nodo = nodo.next
@@ -53,6 +54,8 @@ class BaseDatos:
                     return nodo.dato
                 else:
                     return "!Not Found Client¡"
+        fin = time.time()
+        print("Tiempo:", fin - inicio, "segundos")
         return nodo.dato
 
 
