@@ -98,7 +98,7 @@ def loginAdministrador(baseDatos):
 def inicio(baseDatos):
 
     listaClientes = baseDatos.getLista()
-    print(baseDatos.search("692918210"))
+    #rint(baseDatos.search("692918210"))
     while (True):
         try:
             d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
@@ -106,7 +106,10 @@ def inicio(baseDatos):
                 while True:
                     usuario_id = input("Ingrese por favor su identificación: ")
                     if (baseDatos.existIdentificacion(usuario_id)):
+                        inicio = time.time()
                         cliente = baseDatos.search(usuario_id)
+                        fin = time.time()
+                        print("Tiempo:", fin - inicio, "segundos")
                         break
                     else: print("!Not Found Client¡\n")
                 while True:
@@ -153,17 +156,29 @@ def inicio(baseDatos):
 if __name__ == '__main__':
     path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data50mil.csv","./Resources/data100mil_1.csv",
             "./Resources/data100mil_2.csv", "./Resources/data100mil_3.csv",
-            "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_6.csv",
-            "./Resources/data100mil_7.csv","./Resources/data100mil_8.csv"]
+            "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_8.csv",
+            "./Resources/","./Resources/"]
 
     #453993804    pass = SzlKfkZOt9LTv5DACfLL  -> 200mil
     #266943344    pass= fKOCuOa2dxnBsI5hWFcv -> 400mil
+    #91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
+
     results = []
     results = listaArchivo(path, 3)
     results.pop(len(results) - 1)
     #results = listaArchivo(path,4)
     #results.pop(len(results)-1)
+    results.extend(listaArchivo(path, 2))
+    results.pop(len(results) - 1)
     results.extend(listaArchivo(path,4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 5))
     results.pop(len(results) - 1)
@@ -171,7 +186,7 @@ if __name__ == '__main__':
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 7))
     results.pop(len(results) - 1)
-    results.extend(listaArchivo(path, 10))
+    results.extend(listaArchivo(path, 8))
     results.pop(len(results) - 1)
 
     print(len(results))
