@@ -1,3 +1,5 @@
+import time
+
 from DATA.Cliente import Cliente
 from Logic.Listas_Enlazadas.Linked_List import DLinkedList
 
@@ -23,10 +25,12 @@ class BaseDatos:
             self.__lista.append(self.getCliente())
 
     def delete(self,id):
+        inicio = time.time()
         element = self.search(id)
         if(element!="!Not Found Client¡"):
             self.__lista.pop(element)
-
+        fin = time.time()
+        print("Tiempo:", fin - inicio, "segundos")
     def existIdentificacion(self,id):
         return self.search(id) != "!Not Found Client¡"
 

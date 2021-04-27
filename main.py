@@ -15,6 +15,7 @@ def actualizar(baseDatos):
     while True:
         ident = input("Ingrese la identificación del usuario a actualizar: ")
         if (baseDatos.existIdentificacion(ident)):
+
             client = baseDatos.search(ident)
             nombre = input("Digite su nombre: ")
             apellido = input("Digite su apellido completo: ")
@@ -23,7 +24,7 @@ def actualizar(baseDatos):
             telefono = input("Digite su numero de telefono: ")
             direccion = input("Digite su dirección de vivienda: ")
             password = input("Digite su contraseña: ")
-
+            inicio = time.time()
             client.setNombre(nombre)
             client.setApellido(apellido)
             client.setIdentificacion(cedula)
@@ -31,6 +32,8 @@ def actualizar(baseDatos):
             client.setPassword(password)
             client.setTelefono(telefono)
             client.setDireccion(direccion)
+            fin = time.time()
+            print("Tiempo:", fin - inicio, "segundos")
             print("!!!!!!!Actualizado con Exitó¡¡¡¡¡")
             break
         else:
@@ -53,8 +56,11 @@ def eliminar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     client = baseDatos.search(ident)
     print(client)
+    inicio = time.time()
     baseDatos.delete(ident)
+    fin = time.time()
     print("Eliminado con exitó")
+    print("Tiempo:", fin - inicio, "segundos")
 
 def buscar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
@@ -78,7 +84,11 @@ def loginAdministrador(baseDatos):
             elif(opcion=="2"): actualizar(baseDatos)
             elif(opcion=="3"): eliminar(baseDatos)
             elif (opcion == "4"): buscar(baseDatos)
-            elif (opcion == "5"): baseDatos.getLista().__str__()
+            elif (opcion == "5"):
+                inicio = time.time()
+                baseDatos.getLista().__str__()
+                fin = time.time()
+                print("Tiempo:", fin - inicio, "segundos")
             elif (opcion == "6"):
                 break
         except Exception as e:
@@ -89,7 +99,7 @@ def loginAdministrador(baseDatos):
 def inicio(baseDatos):
 
     listaClientes = baseDatos.getLista()
-    print(baseDatos.search("259564204"))
+    print(baseDatos.search("847017709"))
     while (True):
         try:
             d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
@@ -112,7 +122,13 @@ def inicio(baseDatos):
 
                 nombre = input("Digite su nombre: ")
                 apellido = input("Digite su apellido completo: ")
-                cedula = input("Digite su cedula: ")
+                while True:
+                    cedula = input("Digite su cedula: ")
+                    if (baseDatos.existIdentificacion(cedula)):
+                        print("Error: Existe un cliente con el mismo número de cédula")
+                    else:
+                        break
+
                 correo = input("Digite su dirección de correo electrónico: ")
                 telefono = input("Digite su numero de telefono: ")
                 direccion = input("Digite su dirección de vivienda: ")
@@ -140,7 +156,7 @@ if __name__ == '__main__':
             "./Resources/data100mil_7.csv"]
 
     results = []
-    results = listaArchivo(path, 1)
+    results = listaArchivo(path, 0)
     results.pop(len(results) - 1)
     """results = listaArchivo(path,2)
     results.pop(len(results)-1)
