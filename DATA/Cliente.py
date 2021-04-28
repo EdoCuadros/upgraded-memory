@@ -17,4 +17,4 @@ class Cliente (Persona):
 
 
     def __str__(self):
-        return super().__str__() + "  >>Dirección: "+self.getDireccion()
+        return "Cliente: "+super().__str__() + "  >>Dirección: "+self.getDireccion()

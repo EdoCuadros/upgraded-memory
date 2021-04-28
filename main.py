@@ -118,7 +118,7 @@ def inicio(baseDatos):
                         loginAdministrador(baseDatos)
                         break
                     else: print("Contraseña Incorrecta\n")
-                # Aqui va el metodo para buscar el cliente en la base de datos
+
 
             elif d1 == "2":
 
@@ -139,11 +139,10 @@ def inicio(baseDatos):
                 c1 = Cliente(id_1+1, nombre, apellido, cedula, correo, password, "12123.jpg", telefono, direccion)
                 print("Registro realizado exitosamente")
                 print(c1)
-                # Aqui va el metodo para crear el cliente en la base de datos
                 inicio = time.time()
                 listaClientes.append(c1)
                 fin = time.time()
-                listaClientes.__str__()
+                #listaClientes.__str__()
                 print("Tiempo:", fin - inicio, "segundos")
             elif(d1 == "3"):
                 break
@@ -164,11 +163,11 @@ if __name__ == '__main__':
     #91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
 
     results = []
-    results = listaArchivo(path, 3)
+    results = listaArchivo(path, 0)
     results.pop(len(results) - 1)
     #results = listaArchivo(path,4)
     #results.pop(len(results)-1)
-    results.extend(listaArchivo(path, 2))
+    """results.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path,4))
     results.pop(len(results) - 1)
@@ -187,9 +186,9 @@ if __name__ == '__main__':
     results.extend(listaArchivo(path, 7))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 8))
-    results.pop(len(results) - 1)
+    results.pop(len(results) - 1)"""
 
-    print(len(results))
+    #print(len(results))
     clientes = DLinkedList()
     baseDatos = BaseDatos()
     baseDatos.ListaClientes(results)

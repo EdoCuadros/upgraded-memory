@@ -30,7 +30,7 @@ class BaseDatos:
         if(element!="!Not Found Client¡"):
             self.__lista.pop(element)
         fin = time.time()
-        print("Tiempo:", fin - inicio, "segundos")
+        #print("Tiempo:", fin - inicio, "segundos")
     def existIdentificacion(self,id):
         return self.search(id) != "!Not Found Client¡"
 
@@ -55,7 +55,7 @@ class BaseDatos:
                 else:
                     return "!Not Found Client¡"
         fin = time.time()
-        print("Tiempo:", fin - inicio, "segundos")
+        #print("Tiempo:", fin - inicio, "segundos")
         return nodo.dato
 
 
