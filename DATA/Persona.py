@@ -9,6 +9,7 @@ class Persona:
         self.__foto = foto
         self.__telefono = telefono
 
+
     def getId(self):
         return self.__id
     def setId(self,ID):

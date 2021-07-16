@@ -163,8 +163,9 @@ class DLinkedList(object):
 
 
 
-"""listas =DLinkedList()
-listas.append(2)
+#listas =DLinkedList()
+#print(listas.isEmpty())
+"""listas.append(2)
 listas.append(3)
 listas.append(4)
 listas.append(6)
@@ -178,3 +179,4 @@ listas.pop(2)
 listas.pop(8)
 listas.__str__()
 print(listas.getSize())"""
+

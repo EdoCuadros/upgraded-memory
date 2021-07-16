@@ -18,3 +18,6 @@ class Queue(object):
 
     def __str__(self):
         return self.elements.__str__()
+
+cola = Queue()
+cola.enqueue(2)

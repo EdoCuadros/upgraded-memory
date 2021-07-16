@@ -11,8 +11,10 @@ class BaseDatos:
 
     def getCliente(self):
         return self.__cliente
+
     def setCliente1(self,cliente):
         self.__lista.append(cliente)
+
     def setCliente(self,data):
         self.__cliente=Cliente(data[0], data[1], data[2], data[3], data[4], data[5],"foto", data[6], data[7])
 

@@ -1,7 +1,6 @@
 import csv
-import time
 
-from Logic.base_datos import *
+from Logic.Listas_Enlazadas.base_datos import *
 
 
 
@@ -33,7 +32,7 @@ def actualizar(baseDatos):
             client.setTelefono(telefono)
             client.setDireccion(direccion)
             fin = time.time()
-            print("Tiempo:", fin - inicio, "segundos")
+            #print("Tiempo:", fin - inicio, "segundos")
             print("!!!!!!!Actualizado con Exitó¡¡¡¡¡")
             break
         else:
@@ -48,7 +47,7 @@ def consultar(baseDatos):
     client = baseDatos.search(ident)
     print(client)
     fin = time.time()
-    print("Tiempo:", fin - inicio, "segundos")
+    #print("Tiempo:", fin - inicio, "segundos")
 
 
 def eliminar(baseDatos):
@@ -59,7 +58,8 @@ def eliminar(baseDatos):
     baseDatos.delete(ident)
     fin = time.time()
     print("Eliminado con exitó")
-    print("Tiempo:", fin - inicio, "segundos")
+    baseDatos.getLista().__str__()
+    #print("Tiempo:", fin - inicio, "segundos")
 
 def buscar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
@@ -81,13 +81,14 @@ def loginAdministrador(baseDatos):
             if(opcion=="1"):
                 consultar(baseDatos)
             elif(opcion=="2"): actualizar(baseDatos)
-            elif(opcion=="3"): eliminar(baseDatos)
+            elif(opcion=="3"):
+                eliminar(baseDatos)
             elif (opcion == "4"): buscar(baseDatos)
             elif (opcion == "5"):
                 inicio = time.time()
                 baseDatos.getLista().__str__()
                 fin = time.time()
-                print("Tiempo:", fin - inicio, "segundos")
+                #print("Tiempo:", fin - inicio, "segundos")
             elif (opcion == "6"):
                 break
         except Exception as e:
@@ -101,7 +102,8 @@ def inicio(baseDatos):
     #rint(baseDatos.search("692918210"))
     while (True):
         try:
-            d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
+            print("\n\n")
+            d1 = input("******  Bienvenido a SGI *********\n¿Qué desea hacer? \n\n\t1)Iniciar sesión\n\t2)Registrarse\n\t3)Salir\n")
             if d1 == "1":
                 while True:
                     usuario_id = input("Ingrese por favor su identificación: ")
@@ -109,7 +111,7 @@ def inicio(baseDatos):
                         inicio = time.time()
                         cliente = baseDatos.search(usuario_id)
                         fin = time.time()
-                        print("Tiempo:", fin - inicio, "segundos")
+                        #print("Tiempo:", fin - inicio, "segundos")
                         break
                     else: print("!Not Found Client¡\n")
                 while True:
@@ -143,7 +145,7 @@ def inicio(baseDatos):
                 listaClientes.append(c1)
                 fin = time.time()
                 #listaClientes.__str__()
-                print("Tiempo:", fin - inicio, "segundos")
+                #print("Tiempo:", fin - inicio, "segundos")
             elif(d1 == "3"):
                 break
             else:
@@ -194,4 +196,6 @@ if __name__ == '__main__':
     baseDatos.ListaClientes(results)
 
     inicio(baseDatos)
+
+
 
