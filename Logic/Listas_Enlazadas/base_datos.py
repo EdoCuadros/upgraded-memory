@@ -9,6 +9,7 @@ class BaseDatos:
         self.__cliente = Cliente("","","","","","","","","")
         self.__lista = DLinkedList()
 
+
     def getCliente(self):
         return self.__cliente
 

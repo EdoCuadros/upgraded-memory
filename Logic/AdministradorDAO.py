@@ -1,5 +1,6 @@
 import csv
 
+from DATA.Administrador import Administrador
 from DATA.Persona import Persona
 from Logic.AVLTree.AVLArbol import AVLArbol
 
@@ -8,10 +9,16 @@ class AdministradorDAO(Persona):
     def __init__(self):
         self.__path = None
         self.__arbol = AVLArbol()
+        self.__administrador = Administrador()
         self.__root = None
         self.__archivo = None
 
+    def setPredioToAVL(self,Predio):
+        self.setPredio(Predio)
+        self.__root = self.__arbol.insert_node(self.__root,self.getPredio().getID(),self.getPredio())
 
+    def setAdministrador(self,data):
+        self.__administrador = Administrador(int(data[0]), data[1], data[2], data[3], data[4], data[5],"foto", data[6], data[7])
 
     def getRoot(self):
         return self.__root
