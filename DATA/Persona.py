@@ -11,9 +11,10 @@ class Persona:
 
 
     def getId(self):
-        return self.__id
+        return int(self.__id)
+
     def setId(self,ID):
-        self.__id = ID
+        self.__id = int(ID)
 
     def getNombre(self):
         return self.__nombre

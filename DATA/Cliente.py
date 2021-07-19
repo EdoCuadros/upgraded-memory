@@ -18,3 +18,7 @@ class Cliente (Persona):
 
     def __str__(self):
         return "Cliente: "+super().__str__() + "  >>Dirección: "+self.getDireccion()
+
+    def toStringData(self):
+        return ""+ str(super().getId())+","+super().getNombre()+","+super().getApellido()+","+super().getIdentificacion()+","+\
+                super().getCorreo()+","+super().getPassword()+","+super().getFoto()+","+super().getTelefono()+","+self.getDireccion()
