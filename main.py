@@ -1,6 +1,4 @@
 import csv
-import time
-
 from Logic.base_datos import *
 
 
@@ -14,7 +12,7 @@ def listaArchivo(path, index):
 def actualizar(baseDatos):
     while True:
         ident = input("Ingrese la identificación del usuario a actualizar: ")
-        if (baseDatos.existIdentificacion(ident)):
+        if baseDatos.existIdentificacion(ident):
 
             client = baseDatos.search(ident)
             nombre = input("Digite su nombre: ")
@@ -65,6 +63,7 @@ def buscar(baseDatos):
     client = baseDatos.search(ident)
     print(client)
 
+
 def loginAdministrador(baseDatos):
     while True:
 
@@ -77,32 +76,33 @@ def loginAdministrador(baseDatos):
 
         try:
 
-            #while
             opcion = input("\nOpción: ")
             if opcion == "1":
+                while True:
 
-                print("\n************> Consultas <************\n")
-                print("1. Buscar Cliente")
-                print("2. Ver toda la lista de clientes")
-                print("3. Ver lista de incidentes")
-                print("4. Volver" + '\n')
-                opcion = int(input("Opción: "))
+                    print("\n************> Consultas <************\n")
+                    print("1. Buscar Cliente")
+                    print("2. Ver toda la lista de clientes")
+                    print("3. Ver lista de incidentes")
+                    print("4. Volver" + '\n')
+                    opcion = int(input("Opción: "))
 
-                if opcion == 1:
-                    consultar(baseDatos)
-                elif opcion == 2:
-                    baseDatos.getLista().__str__()
-                elif opcion == 3:
-                    break
-                else:
-                    print("Opcion inexistente!!")
-                    break
+                    if opcion == 1:
+                        consultar(baseDatos)
+                    elif opcion == 2:
+                        baseDatos.getLista().__str__()
+                    elif opcion == 3:
+                        pass
+                    elif opcion == 4:
+                        break
+                    else:
+                        print("Opcion inexistente!!")
 
-            elif (opcion == "2"):
+            elif opcion == "2":
                 print("\n***********> Actualizar <************\n")
                 actualizar(baseDatos)
 
-            elif (opcion == "3"):
+            elif opcion == "3":
                 eliminar(baseDatos)
 
             elif opcion == "4":
@@ -121,23 +121,22 @@ def inicio(baseDatos):
             if d1 == "1":
                 while True:
                     usuario_id = input("Ingrese por favor su identificación: ")
-                    if (baseDatos.existIdentificacion(usuario_id)):
-                        inicio = time.time()
+                    if baseDatos.existIdentificacion(usuario_id):
+                        start = time.time()
                         cliente = baseDatos.search(usuario_id)
                         print(cliente)
                         fin = time.time()
-                        print("Tiempo:", fin - inicio, "segundos")
+                        print("Tiempo:", fin - start, "segundos")
                         break
                     else:
                         print("!Not Found Client¡\n")
                 while True:
-                    contraseña = input("Contraseña: ")
-                    if (cliente.getPassword() == contraseña):
+                    password = input("Contraseña: ")
+                    if cliente.getPassword() == password:
                         loginAdministrador(baseDatos)
                         break
                     else:
                         print("Contraseña Incorrecta\n")
-
 
             elif d1 == "2":
 
@@ -145,7 +144,7 @@ def inicio(baseDatos):
                 apellido = input("Digite su apellido completo: ")
                 while True:
                     cedula = input("Digite su cedula: ")
-                    if (baseDatos.existIdentificacion(cedula)):
+                    if baseDatos.existIdentificacion(cedula):
                         print("Error: Existe un cliente con el mismo número de cédula")
                     else:
                         break
@@ -183,11 +182,11 @@ if __name__ == '__main__':
     # 91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
 
     results = []
+    start = time.time()
+
     results = listaArchivo(path, 0)
     results.pop(len(results) - 1)
-    # results = listaArchivo(path,4)
-    # results.pop(len(results)-1)
-    """results.extend(listaArchivo(path, 2))
+    '''results.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path,4))
     results.pop(len(results) - 1)
@@ -206,11 +205,14 @@ if __name__ == '__main__':
     results.extend(listaArchivo(path, 7))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 8))
-    results.pop(len(results) - 1)"""
+    results.pop(len(results) - 1)'''
 
-    # print(len(results))
+    print(len(results))
     clientes = DLinkedList()
     baseDatos = BaseDatos()
     baseDatos.ListaClientes(results)
+
+    end = time.time()
+    print("Execution time: " + str(end - start))
 
     inicio(baseDatos)
