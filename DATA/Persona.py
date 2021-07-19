@@ -1,70 +1,55 @@
 class Persona:
-    def __init__(self, Id, nombre, apellido, ident, email, password, foto, telefono):
+    def __init__(self,Id = None, nombre=None, apellido=None , identificacion=None, email=None,password=None, foto=None, telefono=None):
         self.__id = Id
         self.__nombre = nombre
         self.__apellido = apellido
-        self.__identificacion = ident
+        self.__identificacion = identificacion
         self.__correo = email
         self.__password = password
         self.__foto = foto
         self.__telefono = telefono
 
-        # Getts and Setts
+    def getId(self):
+        return self.__id
+    def setId(self,ID):
+        self.__id = ID
 
-        def getApellido(self):
-            return self.__Apellido
+    def getNombre(self):
+        return self.__nombre
+    def setNombre(self, nombre):
+        self.__nombre = nombre
 
-        def setApellido(self, apellido):
-            self.__Apellido = apellido
+    def getApellido(self):
+        return self.__apellido
+    def setApellido(self,apellido):
+        self.__apellido = apellido
 
-        def getCorreo(self):
-            return self.__Correo
+    def getIdentificacion(self):
+        return self.__identificacion
+    def setIdentificacion(self,identificacion):
+        self.__identificacion = identificacion
 
-        def setCorreo(self, correo):
-            self.__Correo = correo
+    def getCorreo(self):
+        return self.__correo
+    def setCorreo(self,email):
+        self.__correo = email
 
-        def getFoto(self):
-            return self.__Foto
+    def getPassword(self):
+        return self.__password
+    def setPassword(self,password):
+        self.__password = password
 
-        def setFoto(self, foto):
-            self.__Foto = foto
+    def getFoto(self):
+        return self.__foto
+    def setFoto(self,foto):
+        self.__foto = foto
 
-        def getClave(self):
-            return self.__Clave
+    def getTelefono(self):
+        return self.__telefono
+    def setTelefono(self,telefono):
+        self.__telefono = telefono
 
-        def setClave(self, clave):
-            self.__Clave = clave
-
-        def getIdentificacion(self):
-            return self.__Identificacion
-
-        def setIdentificacion(self, ident):
-            self.__Identificacion = ident
-
-        def getID(self):
-            return self.__ID
-
-        def setID(self, Id):
-            self.__ID = Id
-
-        def getNombre(self):
-            return self.__Nombre
-
-        def setNombre(self, nombre):
-            self.__Nombre = nombre
-
-        def getTelefono(self):
-            return self.__Telefono
-
-        def setTelefono(self, telefono):
-            self.__Telefono = telefono
-
-    #Metodo toString
-
-    def __str__(self):
-        return (super().__str__() + "Nombre: " + self.getNombre() + "\n"
-                + "Apellido: " + self.getApellido() + "\n"
-                + "Clave de acceso: " + self.getClave() + "\n" + "Correo: "
-                + self.getCorreo() + "\n" + "Identificacion: "
-                + str(self.getIdentificacion()) + "\n" + "Id Usuario: "
-                + str(self.getID()) + "\n" + "Telefono: " + str(self.getTelefono()))
+    def __str__(self) -> str:
+        return "  >>ID: " + str(self.getId()) + "  >>Nombre: " + self.getNombre()+ " "+ self.getApellido() + \
+               "  >>Identificación: " + str(self.getIdentificacion()) + "  >>Password: "+self.getPassword()+"  >>Correo: " + self.getCorreo() + \
+               "  >>Teléfono: " + str(self.getTelefono())

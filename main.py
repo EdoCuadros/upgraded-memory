@@ -1,16 +1,216 @@
-# This is a sample Python script.
+import csv
+import time
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from Logic.base_datos import *
 
 
-# Press the green button in the gutter to run the script.
+def listaArchivo(path, index):
+    with open(path[index]) as archivo_data:
+        entrada = csv.reader(archivo_data)
+        results = list(entrada)
+    return results
+
+
+def actualizar(baseDatos):
+    while True:
+        ident = input("Ingrese la identificación del usuario a actualizar: ")
+        if (baseDatos.existIdentificacion(ident)):
+
+            client = baseDatos.search(ident)
+            nombre = input("Digite su nombre: ")
+            apellido = input("Digite su apellido completo: ")
+            cedula = input("Digite su cedula: ")
+            correo = input("Digite su dirección de correo electrónico: ")
+            telefono = input("Digite su numero de telefono: ")
+            direccion = input("Digite su dirección de vivienda: ")
+            password = input("Digite su contraseña: ")
+            inicio = time.time()
+            client.setNombre(nombre)
+            client.setApellido(apellido)
+            client.setIdentificacion(cedula)
+            client.setCorreo(correo)
+            client.setPassword(password)
+            client.setTelefono(telefono)
+            client.setDireccion(direccion)
+            fin = time.time()
+            print("Tiempo:", fin - inicio, "segundos")
+            print("!!!!!!!Actualizado con Exitó¡¡¡¡¡")
+            break
+        else:
+            print("!Not Found Client¡\n")
+
+
+def consultar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    inicio = time.time()
+    client = baseDatos.search(ident)
+    print(client)
+    fin = time.time()
+    print("Tiempo:", fin - inicio, "segundos")
+
+
+def eliminar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    client = baseDatos.search(ident)
+    print(client)
+    inicio = time.time()
+    baseDatos.delete(ident)
+    fin = time.time()
+    print("Eliminado con exitó")
+    print("Tiempo:", fin - inicio, "segundos")
+
+
+def buscar(baseDatos):
+    ident = input("Ingrese la identificación del usuario: ")
+    client = baseDatos.search(ident)
+    print(client)
+
+def loginAdministrador(baseDatos):
+    while True:
+
+        print("*******> Menú Administrador <********")
+        print("")
+        print("1. Consultas")
+        print("2. Actualizar")
+        print("3. Eliminar")
+        print("4. Volver")
+
+        try:
+
+            #while
+            opcion = input("\nOpción: ")
+            if opcion == "1":
+
+                print("\n************> Consultas <************\n")
+                print("1. Buscar Cliente")
+                print("2. Ver toda la lista de clientes")
+                print("3. Ver lista de incidentes")
+                print("4. Volver" + '\n')
+                opcion = int(input("Opción: "))
+
+                if opcion == 1:
+                    consultar(baseDatos)
+                elif opcion == 2:
+                    baseDatos.getLista().__str__()
+                elif opcion == 3:
+                    break
+                else:
+                    print("Opcion inexistente!!")
+                    break
+
+            elif (opcion == "2"):
+                print("\n***********> Actualizar <************\n")
+                actualizar(baseDatos)
+
+            elif (opcion == "3"):
+                eliminar(baseDatos)
+
+            elif opcion == "4":
+                break
+
+        except Exception as e:
+            print("Error : Ingrese una opción válida")
+
+
+def inicio(baseDatos):
+    listaClientes = baseDatos.getLista()
+    print(baseDatos.search("692918210"))
+    while (True):
+        try:
+            d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
+            if d1 == "1":
+                while True:
+                    usuario_id = input("Ingrese por favor su identificación: ")
+                    if (baseDatos.existIdentificacion(usuario_id)):
+                        inicio = time.time()
+                        cliente = baseDatos.search(usuario_id)
+                        print(cliente)
+                        fin = time.time()
+                        print("Tiempo:", fin - inicio, "segundos")
+                        break
+                    else:
+                        print("!Not Found Client¡\n")
+                while True:
+                    contraseña = input("Contraseña: ")
+                    if (cliente.getPassword() == contraseña):
+                        loginAdministrador(baseDatos)
+                        break
+                    else:
+                        print("Contraseña Incorrecta\n")
+
+
+            elif d1 == "2":
+
+                nombre = input("Digite su nombre: ")
+                apellido = input("Digite su apellido completo: ")
+                while True:
+                    cedula = input("Digite su cedula: ")
+                    if (baseDatos.existIdentificacion(cedula)):
+                        print("Error: Existe un cliente con el mismo número de cédula")
+                    else:
+                        break
+
+                correo = input("Digite su dirección de correo electrónico: ")
+                telefono = input("Digite su numero de telefono: ")
+                direccion = input("Digite su dirección de vivienda: ")
+                password = input("Digite su contraseña: ")
+                id_1 = int(baseDatos.getCliente().getId())
+                c1 = Cliente(id_1 + 1, nombre, apellido, cedula, correo, password, "12123.jpg", telefono, direccion)
+                print("Registro realizado exitosamente")
+                print(c1)
+                inicio = time.time()
+                listaClientes.append(c1)
+                fin = time.time()
+                # listaClientes.__str__()
+                print("Tiempo:", fin - inicio, "segundos")
+            elif (d1 == "3"):
+                break
+            else:
+                print("Error : Ingrese una opción válida")
+        except Exception as e:
+            print(e, "Error ingrese una opción válida")
+
+
 if __name__ == '__main__':
-    print(cliente)
+    path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data50mil.csv",
+            "./Resources/data100mil_1.csv",
+            "./Resources/data100mil_2.csv", "./Resources/data100mil_3.csv",
+            "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_8.csv",
+            "./Resources/", "./Resources/"]
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # 453993804    pass = SzlKfkZOt9LTv5DACfLL  -> 200mil
+    # 266943344    pass= fKOCuOa2dxnBsI5hWFcv -> 400mil
+    # 91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
+
+    results = []
+    results = listaArchivo(path, 0)
+    results.pop(len(results) - 1)
+    # results = listaArchivo(path,4)
+    # results.pop(len(results)-1)
+    """results.extend(listaArchivo(path, 2))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path,4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 4))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 5))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 6))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 7))
+    results.pop(len(results) - 1)
+    results.extend(listaArchivo(path, 8))
+    results.pop(len(results) - 1)"""
+
+    # print(len(results))
+    clientes = DLinkedList()
+    baseDatos = BaseDatos()
+    baseDatos.ListaClientes(results)
+
+    inicio(baseDatos)
