@@ -85,7 +85,7 @@ def loginAdministrador(baseDatos):
                     print("2. Ver toda la lista de clientes")
                     print("3. Ver lista de incidentes")
                     print("4. Volver" + '\n')
-                    opcion = int(input("Opción: "))
+                    opcion = int(input("Opción -> "))
 
                     if opcion == 1:
                         consultar(baseDatos)
@@ -96,7 +96,7 @@ def loginAdministrador(baseDatos):
                     elif opcion == 4:
                         break
                     else:
-                        print("Opcion inexistente!!")
+                        print("\n¡Opción inexistente!")
 
             elif opcion == "2":
                 print("\n***********> Actualizar <************\n")
@@ -117,10 +117,11 @@ def inicio(baseDatos):
     print(baseDatos.search("692918210"))
     while (True):
         try:
-            d1 = input("\nBienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
+            d1 = input(
+                "\nBienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n\nOpción -> ")
             if d1 == "1":
                 while True:
-                    usuario_id = input("Ingrese por favor su identificación: ")
+                    usuario_id = input("\nIngrese por favor su identificación: ")
                     if baseDatos.existIdentificacion(usuario_id):
                         start = time.time()
                         cliente = baseDatos.search(usuario_id)
@@ -131,43 +132,75 @@ def inicio(baseDatos):
                     else:
                         print("!Not Found Client¡\n")
                 while True:
-                    password = input("Contraseña: ")
+                    password = input("\nContraseña: ")
                     if cliente.getPassword() == password:
+                        print("\n¡Inicio de sesión exitoso!\n")
                         loginAdministrador(baseDatos)
                         break
                     else:
-                        print("Contraseña Incorrecta\n")
+                        print("\n¡Contraseña Incorrecta!")
 
             elif d1 == "2":
 
-                nombre = input("Digite su nombre: ")
-                apellido = input("Digite su apellido completo: ")
+                print("\nPara registrarse debe ingresar los siguientes datos:\n")
+                nombre = input("Nombre -> ")
+                apellido = input("Apellido completo -> ")
                 while True:
-                    cedula = input("Digite su cedula: ")
+                    cedula = input("Cedula -> ")
                     if baseDatos.existIdentificacion(cedula):
-                        print("Error: Existe un cliente con el mismo número de cédula")
+                        print("Error -> !Este usuario se encuentra registrado¡")
                     else:
                         break
 
-                correo = input("Digite su dirección de correo electrónico: ")
-                telefono = input("Digite su numero de telefono: ")
-                direccion = input("Digite su dirección de vivienda: ")
-                password = input("Digite su contraseña: ")
+                correo = input("Dirección de correo electrónico -> ")
+                telefono = input("Numero de teléfono -> ")
+                direccion = input("Dirección de vivienda -> ")
+
+                while True:
+                    password = input("Contraseña -> ")
+                    confirm_password = input("Confirmar contraseña -> ")
+                    if password != confirm_password:
+                        print("\n¡Las contraseñas no coninciden!\nAsegurese de escribirlas bien\n")
+                    else:
+                        break
+
                 id_1 = int(baseDatos.getCliente().getId())
                 c1 = Cliente(id_1 + 1, nombre, apellido, cedula, correo, password, "12123.jpg", telefono, direccion)
-                print("Registro realizado exitosamente")
+                print("\n¡Registro realizado exitosamente!\n")
                 print(c1)
-                inicio = time.time()
                 listaClientes.append(c1)
-                fin = time.time()
+
+                # inicio = time.time()
+                # fin = time.time()
                 # listaClientes.__str__()
-                print("Tiempo:", fin - inicio, "segundos")
+                # print("Tiempo:", fin - inicio, "segundos")
+
             elif d1 == "3":
+
+                '''
+                print(
+                    "────────────────────────────────────────────────────────────────────────────────────\n"
+                    "─██████████████────████████████──────██████████────██████████████────██████████████─\n"
+                    "─██░░░░░░░░░░██────██░░░░░░░░████────██░░░░░░██────██░░░░░░░░░░██────██░░░░░░░░░░██─\n"
+                    "─██░░██████░░██────██░░████░░░░██────████░░████────██░░██████░░██────██░░██████████─\n"
+                    "─██░░██──██░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░██─────────\n"
+                    "─██░░██████░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░██████████─\n"
+                    "─██░░░░░░░░░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░░░░░░░░░██─\n"
+                    "─██░░██████░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██████████░░██─\n"
+                    "─██░░██──██░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────────────██░░██─\n"
+                    "─██░░██──██░░██────██░░████░░░░██────████░░████────██░░██████░░██────██████████░░██─\n"
+                    "─██░░██──██░░██────██░░░░░░░░████────██░░░░░░██────██░░░░░░░░░░██────██░░░░░░░░░░██─\n"
+                    "─██████──██████────████████████──────██████████────██████████████────██████████████─\n"
+                    "────────────────────────────────────────────────────────────────────────────────────")'''
+
+                print("\n╱╱╱╱╱╱╭╮\n╱╱╱╱╱╱┃┃\n╭━━╮╭━╯┃╭╮╭━━╮╭━━╮\n┃╭╮┃┃╭╮┃┣┫┃╭╮┃┃━━┫\n┃╭╮┃┃╰╯┃┃┃┃╰╯┃┣━━┃\n╰╯╰╯╰━━╯╰╯╰━━╯╰━━╯")
+
+
                 break
             else:
-                print("Error : Ingrese una opción válida")
+                print("Error -> ¡Ingrese una opción válida!")
         except Exception as e:
-            print(e, "Error ingrese una opción válida")
+            print(e, "Error -> ¡Ingrese una opción válida!")
 
 
 if __name__ == '__main__':
@@ -208,7 +241,6 @@ if __name__ == '__main__':
     results.pop(len(results) - 1)'''
 
     print(len(results))
-    clientes = DLinkedList()
     baseDatos = BaseDatos()
     baseDatos.ListaClientes(results)
     end = time.time()
