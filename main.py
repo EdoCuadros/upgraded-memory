@@ -109,7 +109,7 @@ def loginAdministrador(baseDatos):
                 break
 
         except Exception as e:
-            print("Error : Ingrese una opción válida")
+            print("\nError : Ingrese una opción válida")
 
 
 def inicio(baseDatos):
@@ -117,7 +117,7 @@ def inicio(baseDatos):
     print(baseDatos.search("692918210"))
     while (True):
         try:
-            d1 = input("Bienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
+            d1 = input("\nBienvenido al portal, ¿Qué desea hacer?\n1)Iniciar sesión\n2)Registrarse\n3)Salir\n")
             if d1 == "1":
                 while True:
                     usuario_id = input("Ingrese por favor su identificación: ")
@@ -162,7 +162,7 @@ def inicio(baseDatos):
                 fin = time.time()
                 # listaClientes.__str__()
                 print("Tiempo:", fin - inicio, "segundos")
-            elif (d1 == "3"):
+            elif d1 == "3":
                 break
             else:
                 print("Error : Ingrese una opción válida")
@@ -211,7 +211,6 @@ if __name__ == '__main__':
     clientes = DLinkedList()
     baseDatos = BaseDatos()
     baseDatos.ListaClientes(results)
-
     end = time.time()
     print("Execution time: " + str(end - start))
 
