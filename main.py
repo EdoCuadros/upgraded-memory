@@ -10,41 +10,58 @@ def listaArchivo(path, index):
 
 
 def actualizar(baseDatos):
+    ident = input("Ingrese la identificación del usuario a actualizar: ")
     while True:
-        ident = input("Ingrese la identificación del usuario a actualizar: ")
         if baseDatos.existIdentificacion(ident):
 
             client = baseDatos.search(ident)
-            nombre = input("Digite su nombre: ")
-            apellido = input("Digite su apellido completo: ")
-            cedula = input("Digite su cedula: ")
-            correo = input("Digite su dirección de correo electrónico: ")
-            telefono = input("Digite su numero de telefono: ")
-            direccion = input("Digite su dirección de vivienda: ")
-            password = input("Digite su contraseña: ")
-            inicio = time.time()
-            client.setNombre(nombre)
-            client.setApellido(apellido)
-            client.setIdentificacion(cedula)
-            client.setCorreo(correo)
-            client.setPassword(password)
-            client.setTelefono(telefono)
-            client.setDireccion(direccion)
-            fin = time.time()
-            print("Tiempo:", fin - inicio, "segundos")
-            print("!!!!!!!Actualizado con Exitó¡¡¡¡¡")
-            break
+
+            opcion = int(input(
+                "\n¿Qué desea actualizarle a este usuario?\n\n1)Nombre\n2)Apellido\n3)Cédula\n4)Correo\n5)Teléfono\n6)Dirección\n7)Contraseña\n8)Volver\n\nOpción ->"))
+
+            if opcion == 1:
+                nombre = input("Nuevo nombre -> ")
+                client.setNombre(nombre)
+            elif opcion == 2:
+                apellido = input("Nuevo apellido -> ")
+                client.setApellido(apellido)
+            elif opcion == 3:
+                cedula = input("Nuevo número de cédula -> ")
+                client.setIdentificacion(cedula)
+            elif opcion == 4:
+                correo = input("Nueva dirección de correo electrónico -> ")
+                client.setCorreo(correo)
+            elif opcion == 5:
+                telefono = input("Nuevo número de teléfono -> ")
+                client.setTelefono(telefono)
+            elif opcion == 6:
+                direccion = input("Nueva dirección de vivienda -> ")
+                client.setDireccion(direccion)
+            elif opcion == 7:
+                while True:
+                    password = input("Nueva contraseña -> ")
+                    confirm_password = input("Confirmar contraseña -> ")
+                    if password != confirm_password:
+                        print("\n¡Las contraseñas no coninciden!\nAsegurese de escribirlas bien\n")
+                    else:
+                        client.setPassword(password)
+                        break
+            elif opcion == 8:
+                break
+
+            print("\n¡Actualización exitosa!\n")
         else:
-            print("!Not Found Client¡\n")
+            print("\n!Not Found Client¡\n")
+            break
 
 
 def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
     client = baseDatos.search(ident)
-    print(client)
+    # print(client)
     fin = time.time()
-    print("Tiempo:", fin - inicio, "segundos")
+    # print("Tiempo:", fin - inicio, "segundos")
 
 
 def eliminar(baseDatos):
@@ -61,7 +78,7 @@ def eliminar(baseDatos):
 def buscar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     client = baseDatos.search(ident)
-    print(client)
+    # print(client)
 
 
 def loginAdministrador(baseDatos):
@@ -69,17 +86,15 @@ def loginAdministrador(baseDatos):
 
         print("*******> Menú Administrador <********")
         print("")
-        print("1. Consultas")
+        print("1. Consultar")
         print("2. Actualizar")
         print("3. Eliminar")
         print("4. Volver")
 
         try:
-
             opcion = input("\nOpción: ")
             if opcion == "1":
                 while True:
-
                     print("\n************> Consultas <************\n")
                     print("1. Buscar Cliente")
                     print("2. Ver toda la lista de clientes")
@@ -96,25 +111,26 @@ def loginAdministrador(baseDatos):
                     elif opcion == 4:
                         break
                     else:
-                        print("\n¡Opción inexistente!")
+                        print("\n¡Opción inexistente!\n")
 
             elif opcion == "2":
                 print("\n***********> Actualizar <************\n")
                 actualizar(baseDatos)
 
             elif opcion == "3":
+                print("\n*******> Menú eliminaciones <********\n")
                 eliminar(baseDatos)
 
             elif opcion == "4":
                 break
 
         except Exception as e:
-            print("\nError : Ingrese una opción válida")
+            print("\nError : Ingrese una opción válida\n")
 
 
 def inicio(baseDatos):
     listaClientes = baseDatos.getLista()
-    print(baseDatos.search("692918210"))
+    # print(baseDatos.search("692918210"))
     while (True):
         try:
             d1 = input(
@@ -125,9 +141,9 @@ def inicio(baseDatos):
                     if baseDatos.existIdentificacion(usuario_id):
                         start = time.time()
                         cliente = baseDatos.search(usuario_id)
-                        print(cliente)
+                        # print(cliente)
                         fin = time.time()
-                        print("Tiempo:", fin - start, "segundos")
+                        # print("Tiempo:", fin - start, "segundos")
                         break
                     else:
                         print("!Not Found Client¡\n")
@@ -177,25 +193,8 @@ def inicio(baseDatos):
 
             elif d1 == "3":
 
-                '''
                 print(
-                    "────────────────────────────────────────────────────────────────────────────────────\n"
-                    "─██████████████────████████████──────██████████────██████████████────██████████████─\n"
-                    "─██░░░░░░░░░░██────██░░░░░░░░████────██░░░░░░██────██░░░░░░░░░░██────██░░░░░░░░░░██─\n"
-                    "─██░░██████░░██────██░░████░░░░██────████░░████────██░░██████░░██────██░░██████████─\n"
-                    "─██░░██──██░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░██─────────\n"
-                    "─██░░██████░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░██████████─\n"
-                    "─██░░░░░░░░░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██░░░░░░░░░░██─\n"
-                    "─██░░██████░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────██████████░░██─\n"
-                    "─██░░██──██░░██────██░░██──██░░██──────██░░██──────██░░██──██░░██────────────██░░██─\n"
-                    "─██░░██──██░░██────██░░████░░░░██────████░░████────██░░██████░░██────██████████░░██─\n"
-                    "─██░░██──██░░██────██░░░░░░░░████────██░░░░░░██────██░░░░░░░░░░██────██░░░░░░░░░░██─\n"
-                    "─██████──██████────████████████──────██████████────██████████████────██████████████─\n"
-                    "────────────────────────────────────────────────────────────────────────────────────")'''
-
-                print("\n╱╱╱╱╱╱╭╮\n╱╱╱╱╱╱┃┃\n╭━━╮╭━╯┃╭╮╭━━╮╭━━╮\n┃╭╮┃┃╭╮┃┣┫┃╭╮┃┃━━┫\n┃╭╮┃┃╰╯┃┃┃┃╰╯┃┣━━┃\n╰╯╰╯╰━━╯╰╯╰━━╯╰━━╯")
-
-
+                    "\n╱╱╱╱╱╱╭╮\n╱╱╱╱╱╱┃┃\n╭━━╮╭━╯┃╭╮╭━━╮╭━━╮\n┃╭╮┃┃╭╮┃┣┫┃╭╮┃┃━━┫\n┃╭╮┃┃╰╯┃┃┃┃╰╯┃┣━━┃\n╰╯╰╯╰━━╯╰╯╰━━╯╰━━╯")
                 break
             else:
                 print("Error -> ¡Ingrese una opción válida!")
@@ -214,11 +213,12 @@ if __name__ == '__main__':
     # 266943344    pass= fKOCuOa2dxnBsI5hWFcv -> 400mil
     # 91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
 
-    results = []
-    start = time.time()
+    # start = time.time()
 
+    results = []
     results = listaArchivo(path, 0)
     results.pop(len(results) - 1)
+
     '''results.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path,4))
@@ -243,7 +243,8 @@ if __name__ == '__main__':
     print(len(results))
     baseDatos = BaseDatos()
     baseDatos.ListaClientes(results)
-    end = time.time()
-    print("Execution time: " + str(end - start))
+
+    # end = time.time()
+    # print("Execution time: " + str(end - start))
 
     inicio(baseDatos)
