@@ -11,13 +11,14 @@ class AdministradorDAO:
         self.__arbol = AVLArbol()
         self.__administrador = Administrador(None,"","","","","","","","")
         self.__root = None
-        #self.__archivo = None
+        self.__archivo = None
         self.__id_increment = 0
 
     def crearAVL(self,archivo):
+        self.__archivo = archivo
         for data in archivo:
             self.setAdministrador(data)
-            self.__root = self.__arbol.insert_node(self.__root,self.getAdministrador().getId(),self.getAdministrador())
+            self.__root = self.__arbol.insert_node(self.__root,self.getAdministrador().getIdentificacion(),self.getAdministrador())
             self.__id_increment += 1
 
     def insertarAdmin(self,admin):
@@ -49,6 +50,10 @@ class AdministradorDAO:
                 return self.searchID(temp.right, key)
         except Exception:
             return "!Not found¡"
+    def existIdentificacion(self, ident):
+        if(self.searchID(self.getRoot(),ident).getIdentificacion() == ident):
+            return True
+        return False
 
     def obtenerPrimero(self):
         return self.__arbol.getMinValueNode(self.__root)

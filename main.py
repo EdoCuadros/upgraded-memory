@@ -145,7 +145,7 @@ def inicio(baseAdmin, baseClient, baseIncident):
             if d1 == "1":
                 while True:
                     usuario_id = input("\nIngrese por favor su identificación: ")
-                    if baseDatos.existIdentificacion(usuario_id):
+                    if baseAdmin.existIdentificacion(usuario_id):
                         start = time.time()
                         cliente = baseDatos.search(usuario_id)
                         # print(cliente)
@@ -210,25 +210,26 @@ def inicio(baseAdmin, baseClient, baseIncident):
 
 
 if __name__ == '__main__':
-    path = ["./Resources/datamil.csv", "./Resources/data10mil.csv", "./Resources/data50mil.csv",
-            "./Resources/data100mil_1.csv",
-            "./Resources/data100mil_2.csv", "./Resources/data100mil_3.csv",
-            "./Resources/data100mil_4.csv", "./Resources/data100mil_5.csv", "./Resources/data100mil_8.csv",
-            "./Resources/", "./Resources/"]
+    pathClientes = ["./Resources/Data_Cliente/datamil.csv", "./Resources/Data_Cliente/data10mil.csv", "./Resources/Data_Cliente/data50mil.csv",
+            "./Resources/Data_Cliente/data100mil_1.csv",
+            "./Resources/Data_Cliente/data100mil_2.csv", "./Resources/Data_Cliente/data100mil_3.csv",
+            "./Resources/Data_Cliente/data100mil_4.csv", "./Resources/Data_Cliente/data100mil_5.csv", "./Resources/Data_Cliente/data100mil_8.csv"]
 
-    # 453993804    pass = SzlKfkZOt9LTv5DACfLL  -> 200mil
-    # 266943344    pass= fKOCuOa2dxnBsI5hWFcv -> 400mil
-    # 91318190    pass= NR6A4w8U3fCDdzX9xC2h -> 600mil  800mil 1millon
+    pathAdmin = ["./Resources/Data_Cliente/datamil.csv"]
+
 
     # start = time.time()
 
-    results = []
-    results = listaArchivo(path, 0)
-    results.pop(0)
-    results.pop(len(results) - 1)
+    resultsClientes = []
+    resultsClientes = listaArchivo(pathClientes, 1)
+    resultsClientes.pop(0)
+    resultsClientes.pop(len(resultsClientes) - 1)
 
-    for i in results:
-        print(i)
+    resultsAdmin = []
+    resultsAdmin = listaArchivo(pathAdmin, 0)
+    resultsAdmin.pop(0)
+    resultsAdmin.pop(len(resultsAdmin) - 1)
+
 
     '''results.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
@@ -250,19 +251,24 @@ if __name__ == '__main__':
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 8))
     results.pop(len(results) - 1)'''
+    #438215871
 
-    print(len(results))
 
     baseAdministrador = AdministradorDAO()
     baseCliente = ClienteDAO()
     baseIncidente = IncidenteDAO()
 
-    baseAdministrador.crearAVL(results)
+    baseAdministrador.crearAVL(resultsAdmin)
+    baseCliente.crearAVL(resultsClientes)
     baseAdministrador.__str__(baseAdministrador.getRoot(),"",True)
-    client1 = baseAdministrador.searchID(baseAdministrador.getRoot(),200)
-    print(client1)
+    client1 = baseAdministrador.searchID(baseAdministrador.getRoot(),'438215871')
+
+
     print(client1.getNombre()+client1.getTelefono())
+
+    print(baseAdministrador.existIdentificacion("438215871"))
+    #print(baseAdministrador.getAdministrador())
     # end = time.time()
     # print("Execution time: " + str(end - start))
 
-    #inicio(baseDatos)
+    inicio(baseAdministrador,baseCliente,baseIncidente)

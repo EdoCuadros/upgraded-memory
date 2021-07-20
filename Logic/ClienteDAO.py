@@ -16,12 +16,12 @@ class ClienteDAO:
     def crearAVL(self, archivo):
         for data in archivo:
             self.setCliente(data)
-            self.__root = self.__arbol.insert_node(self.__root, self.getClient().getId(), self.getCliente())
+            self.__root = self.__arbol.insert_node(self.__root, self.getClient().getIdentificacion(), self.getCliente())
             self.__id_increment += 1
 
     def insertarClient(self, client):
         self.setCliente(client)
-        self.__root = self.__arbol.insert_node(self.__root, self.getCliente().getId(), self.getCliente())
+        self.__root = self.__arbol.insert_node(self.__root, self.getCliente().getIdentificacion(), self.getCliente())
         self.__id_increment += 1
 
     def getCliente(self):
@@ -52,6 +52,11 @@ class ClienteDAO:
 
     def obtenerPrimero(self):
         return self.__arbol.getMinValueNode(self.__root)
+
+    def existIdentificacion(self, ident):
+        if(self.searchID(self.getRoot(),ident).getIdentificacion() == ident):
+            return True
+        return False
 
     def agregarClienteArchivo(self):
         myData = self.getCliente().toStringData().split(",")
