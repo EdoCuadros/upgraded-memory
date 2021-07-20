@@ -97,7 +97,7 @@ class DLinkedList(object):
     def append(self,data):
         new_node = nodeD(data, None, None)
         self.__size += 1
-        if self.tail == None:
+        if (self.tail == None):
             self.tail = new_node
             self.head = new_node
         else:
@@ -106,9 +106,9 @@ class DLinkedList(object):
             self.tail = new_node
 
     def popBack(self):
-        if self.head==None:
+        if(self.head==None):
             print("Error!!! Empty List")
-        if  self.head==self.tail :
+        if (self.head==self.tail):
             self.__size -= 1
             self.tail = None
             self.head = None
@@ -118,18 +118,18 @@ class DLinkedList(object):
             self.tail.next = None
 
     def pop(self, data):
-        if  self.head == None :
+        if (self.head == None):
             return "Error!!! Empty List"
         nodo = self.searchElement(data)
-        if  self.head == self.tail :
+        if (self.head == self.tail):
             self.__size -= 1
             self.tail = None
             self.head = None
-        elif self.tail == nodo :
+        elif(self.tail == nodo):
             self.__size -=  1
             self.tail = nodo.prev
             nodo.prev.next = None
-        elif self.head == nodo :
+        elif(self.head == nodo):
             self.__size -= 1
             self.head = nodo.next
             nodo.next.prev = None
@@ -163,8 +163,9 @@ class DLinkedList(object):
 
 
 
-"""listas =DLinkedList()
-listas.append(2)
+#listas =DLinkedList()
+#print(listas.isEmpty())
+"""listas.append(2)
 listas.append(3)
 listas.append(4)
 listas.append(6)
@@ -178,3 +179,4 @@ listas.pop(2)
 listas.pop(8)
 listas.__str__()
 print(listas.getSize())"""
+

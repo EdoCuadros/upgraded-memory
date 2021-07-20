@@ -6,7 +6,7 @@ class Stack(object):
         self.elements = linked_List()
 
     def push(self, data):
-        self.elements.pushBack(data)
+        self.elements.pushFront(data)
 
     def pop(self):
         try:
@@ -25,3 +25,6 @@ class Stack(object):
 
     def __str__(self):
         return self.elements.__str__()
+
+pila = Stack()
+pila.push(1)
