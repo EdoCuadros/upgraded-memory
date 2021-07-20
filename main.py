@@ -59,7 +59,7 @@ def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
     client = baseDatos.search(ident)
-    # print(client)
+    print(client)
     fin = time.time()
     # print("Tiempo:", fin - inicio, "segundos")
 
