@@ -1,5 +1,11 @@
 import csv
-from Logic.base_datos import *
+import time
+
+
+
+from DATA.Cliente import Cliente
+from Logic.AdministradorDAO import AdministradorDAO
+from Logic.ClienteDAO import ClienteDAO
 
 
 def listaArchivo(path, index):
@@ -217,7 +223,11 @@ if __name__ == '__main__':
 
     results = []
     results = listaArchivo(path, 0)
+    results.pop(0)
     results.pop(len(results) - 1)
+
+    for i in results:
+        print(i)
 
     '''results.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
@@ -241,10 +251,16 @@ if __name__ == '__main__':
     results.pop(len(results) - 1)'''
 
     print(len(results))
-    baseDatos = BaseDatos()
-    baseDatos.ListaClientes(results)
 
+    baseAdministrador = AdministradorDAO()
+    baseCliente = ClienteDAO()
+
+    baseAdministrador.crearAVL(results)
+    baseAdministrador.__str__(baseAdministrador.getRoot(),"",True)
+    client1 = baseAdministrador.searchID(baseAdministrador.getRoot(),200)
+    print(client1)
+    print(client1.getNombre()+client1.getTelefono())
     # end = time.time()
     # print("Execution time: " + str(end - start))
 
-    inicio(baseDatos)
+    #inicio(baseDatos)

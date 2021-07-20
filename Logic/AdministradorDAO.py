@@ -9,15 +9,16 @@ class AdministradorDAO:
     def __init__(self):
         self.__path = None
         self.__arbol = AVLArbol()
-        self.__administrador = Administrador("","","","","","","","","")
+        self.__administrador = Administrador(None,"","","","","","","","")
         self.__root = None
         self.__archivo = None
         self.__id_increment = 0
 
-    def crearAVL(self,Administrador):
-        self.setAdministrador(Administrador)
-        self.__root = self.__arbol.insert_node(self.__root,self.getAdministrador().getId(),self.getAdministrador())
-        self.__id_increment+=1
+    def crearAVL(self,archivo):
+        for data in archivo:
+            self.setAdministrador(data)
+            self.__root = self.__arbol.insert_node(self.__root,self.getAdministrador().getId(),self.getAdministrador())
+            self.__id_increment += 1
 
     def insertarAdmin(self,admin):
         self.setAdministrador(admin)
