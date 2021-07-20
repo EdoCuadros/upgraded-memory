@@ -1,47 +1,53 @@
-import Cliente
+import datetime
 
 
-class Incident:
+class Incidente:
 
     # Init function
 
-    def __init__(self, description: str, address: str, date: str, requester: Cliente):
-        self.description = description
-        self.address = address
-        self.date = date
-        self.requester = requester
+    def __init__(self, id=None,description=None, address=None, date = datetime, idCliente=None):
+        self.__id = id
+        self.__description = description
+        self.__address = address
+        self.__date = date
+        self.__idCliente = idCliente
 
     # Setters and Getters
+    def getId(self):
+        return int(self.__id)
 
-    def setDescription(self, description: str):
-        self.description = description
+    def setId(self,ID):
+        self.__id = int(ID)
 
-    def getDescription(self) -> str:
-        return self.description
+    def setDescription(self, description):
+        self.__description = description
 
-    def setAddress(self, address: str):
-        self.address = address
+    def getDescription(self):
+        return self.__description
 
-    def getAddress(self) -> str:
-        return self.address
+    def setAddress(self, address):
+        self.__address = address
 
-    def setDate(self, date: str):
-        self.date = date
+    def getAddress(self):
+        return self.__address
 
-    def getDate(self) -> str:
-        return self.date
+    def setDate(self, date):
+        self.__date = date
 
-    def setRequester(self, client: Cliente):
-        self.requester = client
+    def getDate(self):
+        return str(self.__date)
 
-    def getRequester(self) -> Cliente:
-        return self.requester
+    def setIdCliente(self, idCliente):
+        self.__idCliente = idCliente
+
+    def getIdCliente(self):
+        return self.__idCliente
 
     # toString Method
 
-    def __str__(self) -> str:
-        return "  >>Descripción: " + self.getDescription() + "  >>Dirección: " + self.getAddress() + " >>Fecha: " + self.getDate() + \
-               "  >>Cliente: " + self.getRequester()
+    def __str__(self):
+        return "  >>ID: " + str(self.getId()) + "  >>Descripción: " + self.getDescription() + "  >>Dirección: " + self.getAddress() + " >>Fecha: " + self.getDate() + \
+               "  >>ID Cliente: " + str(self.getIdCliente())
 
 
 

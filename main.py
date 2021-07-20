@@ -6,6 +6,7 @@ import time
 from DATA.Cliente import Cliente
 from Logic.AdministradorDAO import AdministradorDAO
 from Logic.ClienteDAO import ClienteDAO
+from Logic.IncidenteDAO import IncidenteDAO
 
 
 def listaArchivo(path, index):
@@ -134,8 +135,8 @@ def loginAdministrador(baseDatos):
             print("\nError : Ingrese una opción válida\n")
 
 
-def inicio(baseDatos):
-    listaClientes = baseDatos.getLista()
+def inicio(baseAdmin, baseClient, baseIncident):
+    listaClientes = baseClient.getRoot()
     # print(baseDatos.search("692918210"))
     while (True):
         try:
@@ -254,6 +255,7 @@ if __name__ == '__main__':
 
     baseAdministrador = AdministradorDAO()
     baseCliente = ClienteDAO()
+    baseIncidente = IncidenteDAO()
 
     baseAdministrador.crearAVL(results)
     baseAdministrador.__str__(baseAdministrador.getRoot(),"",True)

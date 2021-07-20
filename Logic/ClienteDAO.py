@@ -1,3 +1,5 @@
+import csv
+
 from DATA.Cliente import Cliente
 from Logic.AVLTree.AVLArbol import AVLArbol
 
@@ -11,10 +13,11 @@ class ClienteDAO:
         self.__archivo = None
         self.__id_increment = 0
 
-    def crearAVL(self, cliente):
-        self.setCliente(cliente)
-        self.__root = self.__arbol.insert_node(self.__root, self.getClient().getId(), self.getCliente())
-        self.__id_increment += 1
+    def crearAVL(self, archivo):
+        for data in archivo:
+            self.setCliente(data)
+            self.__root = self.__arbol.insert_node(self.__root, self.getClient().getId(), self.getCliente())
+            self.__id_increment += 1
 
     def insertarClient(self, client):
         self.setCliente(client)

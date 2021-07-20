@@ -11,7 +11,7 @@ class AdministradorDAO:
         self.__arbol = AVLArbol()
         self.__administrador = Administrador(None,"","","","","","","","")
         self.__root = None
-        self.__archivo = None
+        #self.__archivo = None
         self.__id_increment = 0
 
     def crearAVL(self,archivo):
@@ -60,6 +60,8 @@ class AdministradorDAO:
             writer = csv.writer(myFile)
             writer.writerow(u for u in myData)
         print(">>>>>>>>>>>>>>>  ¡Se creó exitosamente! <<<<<<<<<<<<<<<<")
+
+
 
     def __str__(self,currPtr, indent, last):
         self.__arbol.printHelper(currPtr,indent,last)
