@@ -1,6 +1,6 @@
 import csv
 from Logic.base_datos import *
-
+import time
 
 def listaArchivo(path, index):
     with open(path[index]) as archivo_data:
@@ -80,6 +80,8 @@ def buscar(baseDatos):
     client = baseDatos.search(ident)
     # print(client)
 
+def crearIncidente(cliente): #TODO: Crear funcion para creacion de incidente
+    pass
 
 def loginAdministrador(baseDatos):
     while True:
@@ -127,6 +129,56 @@ def loginAdministrador(baseDatos):
         except Exception as e:
             print("\nError : Ingrese una opción válida\n")
 
+def loginCliente(cliente,baseDatos):
+    while True:
+        print("Bienvenido, "+cliente.getNombre()+"\n*******> Menú Cliente <********")
+        print("1.Actualizar datos\n2.Crear incidente\n3.Ver estado de incidente\n4.Volver")
+
+        try:
+            opcion = input("\nOpción: ")
+            #TODO: Crear opciones
+            if opcion == "1":
+                while True:
+                    opcion = int(input(
+                        "\n¿Qué desea actualizarle a este usuario?\n\n1)Nombre\n2)Apellido\n3)Cédula\n4)Correo\n5)Teléfono\n6)Dirección\n7)Contraseña\n8)Volver\n\nOpción ->"))
+
+                    if opcion == 1:
+                        nombre = input("Nuevo nombre -> ")
+                        cliente.setNombre(nombre)
+                    elif opcion == 2:
+                        apellido = input("Nuevo apellido -> ")
+                        cliente.setApellido(apellido)
+                    elif opcion == 3:
+                        cedula = input("Nuevo número de cédula -> ")
+                        cliente.setIdentificacion(cedula)
+                    elif opcion == 4:
+                        correo = input("Nueva dirección de correo electrónico -> ")
+                        cliente.setCorreo(correo)
+                    elif opcion == 5:
+                        telefono = input("Nuevo número de teléfono -> ")
+                        cliente.setTelefono(telefono)
+                    elif opcion == 6:
+                        direccion = input("Nueva dirección de vivienda -> ")
+                        cliente.setDireccion(direccion)
+                    elif opcion == 7:
+                        while True:
+                            password = input("Nueva contraseña -> ")
+                            confirm_password = input("Confirmar contraseña -> ")
+                            if password != confirm_password:
+                                print("\n¡Las contraseñas no coinciden!\nAsegurese de escribirlas bien\n")
+                            else:
+                                cliente.setPassword(password)
+                                break
+            elif opcion == "2":
+                pass
+            elif opcion == "3":
+                pass
+            elif opcion == "4":
+                break
+        except Exception as e:
+            print("\nError : Ingrese una opción valida\n")
+
+        break
 
 def inicio(baseDatos):
     listaClientes = baseDatos.getLista()
@@ -151,11 +203,17 @@ def inicio(baseDatos):
                     password = input("\nContraseña: ")
                     if cliente.getPassword() == password:
                         print("\n¡Inicio de sesión exitoso!\n")
-                        loginAdministrador(baseDatos)
-                        break
+                        rol = cliente.getRol()
+                        if rol == "Cliente":  #TODO: Menu cliente
+                            loginCliente(cliente,baseDatos)
+                            break
+                        elif rol == "Administrador":
+                            loginAdministrador(baseDatos)
+                            break
+                        elif rol == "Tecnico":  #TODO: Menu Tecnico
+                            pass
                     else:
                         print("\n¡Contraseña Incorrecta!")
-
             elif d1 == "2":
 
                 print("\nPara registrarse debe ingresar los siguientes datos:\n")
@@ -216,7 +274,7 @@ if __name__ == '__main__':
     # start = time.time()
 
     results = []
-    results = listaArchivo(path, 0)
+    results = listaArchivo(path, 3)
     results.pop(len(results) - 1)
 
     '''results.extend(listaArchivo(path, 2))

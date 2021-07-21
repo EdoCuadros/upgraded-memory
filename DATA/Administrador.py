@@ -2,8 +2,8 @@ from DATA.Persona import Persona
 
 
 class Administrador(Persona):
-    def __init__(self, Id, nombre, apellido, identificacion, email, password, foto, telefono, direccion):
-        super().__init__(Id, nombre, apellido, identificacion, email, password, foto, telefono)
+    def __init__(self, Id, nombre, apellido, identificacion, email, password, foto, telefono, direccion,rol):
+        super().__init__(Id, nombre, apellido, identificacion, email, password, foto, telefono,rol)
         self.__direccion = direccion
 
 

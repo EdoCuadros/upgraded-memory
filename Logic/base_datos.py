@@ -6,7 +6,7 @@ from Logic.Listas_Enlazadas.Linked_List import DLinkedList
 class BaseDatos:
     def __init__(self):
         self.__data = None
-        self.__cliente = Cliente("","","","","","","","","")
+        self.__cliente = Cliente("","","","","","","","","","")
         self.__lista = DLinkedList()
 
     def getCliente(self):
@@ -14,7 +14,7 @@ class BaseDatos:
     def setCliente1(self,cliente):
         self.__lista.append(cliente)
     def setCliente(self,data):
-        self.__cliente=Cliente(data[0], data[1], data[2], data[3], data[4], data[5],"foto", data[6], data[7])
+        self.__cliente=Cliente(data[0], data[1], data[2], data[3], data[4], data[5],"foto", data[6], data[7],data[8])
 
     def getLista(self):
         return self.__lista

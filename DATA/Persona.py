@@ -1,5 +1,5 @@
 class Persona:
-    def __init__(self,Id = None, nombre=None, apellido=None , identificacion=None, email=None,password=None, foto=None, telefono=None):
+    def __init__(self,Id = None, nombre=None, apellido=None , identificacion=None, email=None,password=None, foto=None, telefono=None,rol = None):
         self.__id = Id
         self.__nombre = nombre
         self.__apellido = apellido
@@ -8,6 +8,7 @@ class Persona:
         self.__password = password
         self.__foto = foto
         self.__telefono = telefono
+        self.__rol = rol
 
 
     def getId(self):
@@ -50,6 +51,11 @@ class Persona:
         return self.__telefono
     def setTelefono(self,telefono):
         self.__telefono = telefono
+
+    def getRol(self):
+        return self.__rol
+    def setRol(self,rol):
+        self.__rol = rol
 
     def __str__(self) -> str:
         return "  >>ID: " + str(self.getId()) + "  >>Nombre: " + self.getNombre()+ " "+ self.getApellido() + \
