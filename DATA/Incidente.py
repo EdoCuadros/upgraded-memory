@@ -1,11 +1,8 @@
-import datetime
 
 
 class Incidente:
-
     # Init function
-
-    def __init__(self, id=None,description=None, address=None, date = datetime, idCliente=None):
+    def __init__(self, id=None,description=None, address=None, date = None, idCliente=None):
         self.__id = id
         self.__description = description
         self.__address = address

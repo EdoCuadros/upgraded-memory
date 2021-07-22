@@ -128,6 +128,6 @@ class AVLArbol(object):
             else:
                 sys.stdout.write("L----")
                 indent += "|    "
-            print(currPtr.key)
+            print(currPtr.data)
             self.printHelper(currPtr.left, indent, False)
             self.printHelper(currPtr.right, indent, True)

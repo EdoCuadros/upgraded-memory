@@ -23,19 +23,25 @@ class AdministradorDAO:
 
     def insertarAdmin(self,admin):
         self.setAdministrador(admin)
-        self.__root = self.__arbol.insert_node(self.__root, self.getAdministrador().getId(), self.getAdministrador())
+        self.__root = self.__arbol.insert_node(self.__root, self.getAdministrador().getIdentificacion(), self.getAdministrador())
         self.__id_increment += 1
 
     def getAdministrador(self):
         return self.__administrador
 
+    def getIdIncremental(self):
+        return self.__id_increment
+
     def setAdministrador(self,data):
         self.__administrador = Administrador(int(data[0]), data[1], data[2], data[3], data[4], data[5], "foto", data[6],data[7])
+
+    def setAdministrador1(self, admin):
+        self.__administrador = admin
 
     def getRoot(self):
         return self.__root
 
-    def deleteAdministrador(self,root,ID):
+    def delete(self,root,ID):
         self.__arbol.delete_node(root,ID)
         self.__id_increment -= 1
 
@@ -50,10 +56,14 @@ class AdministradorDAO:
                 return self.searchID(temp.right, key)
         except Exception:
             return "!Not found¡"
+
     def existIdentificacion(self, ident):
-        if(self.searchID(self.getRoot(),ident).getIdentificacion() == ident):
-            return True
-        return False
+        try:
+            if (self.searchID(self.getRoot(), ident).getIdentificacion() == ident):
+                return True
+            return False
+        except Exception as e:
+            return False
 
     def obtenerPrimero(self):
         return self.__arbol.getMinValueNode(self.__root)

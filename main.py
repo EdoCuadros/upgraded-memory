@@ -1,9 +1,10 @@
 import csv
+from datetime import date, time, datetime
 import time
 
-
-
+from DATA.Administrador import Administrador
 from DATA.Cliente import Cliente
+from DATA.Incidente import Incidente
 from Logic.AdministradorDAO import AdministradorDAO
 from Logic.ClienteDAO import ClienteDAO
 from Logic.IncidenteDAO import IncidenteDAO
@@ -21,7 +22,7 @@ def actualizar(baseDatos):
     while True:
         if baseDatos.existIdentificacion(ident):
 
-            client = baseDatos.search(ident)
+            client = baseDatos.searchID(baseDatos.getRoot(),ident)
 
             opcion = int(input(
                 "\n¿Qué desea actualizarle a este usuario?\n\n1)Nombre\n2)Apellido\n3)Cédula\n4)Correo\n5)Teléfono\n6)Dirección\n7)Contraseña\n8)Volver\n\nOpción ->"))
@@ -61,40 +62,76 @@ def actualizar(baseDatos):
             print("\n!Not Found Client¡\n")
             break
 
-
 def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
-    client = baseDatos.search(ident)
-    # print(client)
+    client = baseDatos.searchID(baseDatos.getRoot(),ident)
+    print(client)
     fin = time.time()
     # print("Tiempo:", fin - inicio, "segundos")
 
-
 def eliminar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
-    client = baseDatos.search(ident)
+    client = baseDatos.searchID(baseDatos.getRoot(),ident)
     print(client)
     inicio = time.time()
-    baseDatos.delete(ident)
+    baseDatos.delete(baseDatos.getRoot(),ident)
     fin = time.time()
     print("Eliminado con exitó")
     print("Tiempo:", fin - inicio, "segundos")
 
+def loginCliente(baseAdmin,baseClient, baseIncident,idCliente):
+    while True:
+        print("*******> Menú Cliente <********")
+        print("")
+        print("1. Consultar")
+        print("2. Crear Incidente")
+        print("3. Actualizar Datos")
+        print("4. Volver")
+        try:
+            opcion = input("\nOpción: ")
+            if opcion == "1":
+                while True:
+                    print("\n************> Consultas <************\n")
+                    print("1. Ver lista de incidentes")
+                    print("2. Volver" + '\n')
+                    opcion = int(input("Opción -> "))
 
-def buscar(baseDatos):
-    ident = input("Ingrese la identificación del usuario: ")
-    client = baseDatos.search(ident)
-    # print(client)
+                    if opcion == 1:
+                        baseIncident.obtenerIncidente(idCliente)
+                    elif opcion == 2:
+                        break
+                    else:
+                        print("\n¡Opción inexistente!\n")
+            elif opcion == "2":
+                print("\n***********> Crear Incidente <************\n")
+                fecha = datetime.now()
+                print("Ingrese la descripcion del incidente: ")
+                descripcion = input()
+                print("Ingrese la dirección del incidente: ")
+                direccion = input()
+                incidente = Incidente(baseIncident.getIdIncremental(),descripcion,direccion,fecha.strftime('%d/%m/%Y %H:%M:%S'),idCliente)
+                baseIncident.insertar(incidente)
+                print(incidente)
+
+            elif opcion == "3":
+                print("\n***********> Actualizar <************\n")
+                actualizar(baseClient)
+
+            elif opcion == "4":
+                inicio(baseAdmin,baseClient,baseIncident)
 
 
-def loginAdministrador(baseDatos):
+        except Exception as e:
+            print("\nError : Ingrese una opción válida\n")
+
+def loginAdministrador(baseAdmin, baseClient, baseIncident):
     while True:
 
         print("*******> Menú Administrador <********")
         print("")
         print("1. Consultar")
-        print("2. Actualizar")
+        print("2. Actualizar datos")
         print("3. Eliminar")
         print("4. Volver")
 
@@ -110,11 +147,11 @@ def loginAdministrador(baseDatos):
                     opcion = int(input("Opción -> "))
 
                     if opcion == 1:
-                        consultar(baseDatos)
+                        consultar(baseClient)
                     elif opcion == 2:
-                        baseDatos.getLista().__str__()
+                        baseClient.__str__(baseClient.getRoot(),"",True)
                     elif opcion == 3:
-                        pass
+                        baseIncident.__str__(baseIncident.getRoot(),"",True)
                     elif opcion == 4:
                         break
                     else:
@@ -122,22 +159,22 @@ def loginAdministrador(baseDatos):
 
             elif opcion == "2":
                 print("\n***********> Actualizar <************\n")
-                actualizar(baseDatos)
+                actualizar(baseAdmin)
 
             elif opcion == "3":
-                print("\n*******> Menú eliminaciones <********\n")
-                eliminar(baseDatos)
+                print("\n*******> Menú eliminar <********\n")
+
+                eliminar(baseClient)
 
             elif opcion == "4":
-                break
+                inicio(baseAdmin,baseClient,baseIncident)
 
         except Exception as e:
             print("\nError : Ingrese una opción válida\n")
 
 
 def inicio(baseAdmin, baseClient, baseIncident):
-    listaClientes = baseClient.getRoot()
-    # print(baseDatos.search("692918210"))
+    roll = True
     while (True):
         try:
             d1 = input(
@@ -145,58 +182,83 @@ def inicio(baseAdmin, baseClient, baseIncident):
             if d1 == "1":
                 while True:
                     usuario_id = input("\nIngrese por favor su identificación: ")
-                    if baseAdmin.existIdentificacion(usuario_id):
+                    #print(baseClient.existIdentificacion(usuario_id))
+                    if (baseAdmin.existIdentificacion(usuario_id)):
+                        admin = baseAdmin.searchID(baseAdmin.getRoot(),usuario_id)
+                        #print("Administrador")
+                        #print(admin)
+                        roll = True
+
+                    elif(baseClient.existIdentificacion(usuario_id)):
                         start = time.time()
-                        cliente = baseDatos.search(usuario_id)
+                        cliente = baseClient.searchID(baseClient.getRoot(),usuario_id)
                         # print(cliente)
+                        #print("Cliente")
                         fin = time.time()
                         # print("Tiempo:", fin - start, "segundos")
+                        roll = False
                         break
                     else:
                         print("!Not Found Client¡\n")
+                    break
                 while True:
                     password = input("\nContraseña: ")
-                    if cliente.getPassword() == password:
-                        print("\n¡Inicio de sesión exitoso!\n")
-                        loginAdministrador(baseDatos)
-                        break
+                    if(roll):
+                        if admin.getPassword() == password:
+                            print("\n¡Inicio de sesión exitoso!\n")
+                            loginAdministrador(baseAdmin,baseClient,baseIncident)
+                            break
+                        else:
+                            print("\n¡Contraseña Incorrecta!")
                     else:
-                        print("\n¡Contraseña Incorrecta!")
+                        #CLIENTE
+                        if cliente.getPassword() == password:
+                            print("\n¡Inicio de sesión exitoso!\n")
+                            loginCliente(baseAdmin,baseClient,baseIncident,usuario_id)
+                            break
+                        else:
+                            print("\n¡Contraseña Incorrecta!")
 
             elif d1 == "2":
 
                 print("\nPara registrarse debe ingresar los siguientes datos:\n")
-                nombre = input("Nombre -> ")
-                apellido = input("Apellido completo -> ")
                 while True:
-                    cedula = input("Cedula -> ")
-                    if baseDatos.existIdentificacion(cedula):
-                        print("Error -> !Este usuario se encuentra registrado¡")
+                    roll = input("Roll: Escriba [A] para Administrador ó Escriba [C] para Cliente -> ")
+                    if(roll == 'A' or roll == 'C'):
+                        nombre = input("Nombre -> ")
+                        apellido = input("Apellido completo -> ")
+                        while True:
+                            cedula = input("Cedula -> ")
+                            if baseAdmin.existIdentificacion(cedula):
+                                print("Error -> !Este usuario se encuentra registrado¡")
+                            elif baseClient.existIdentificacion(cedula):
+                                print("Error -> !Este usuario se encuentra registrado¡")
+                            else:
+                                break
+
+                        correo = input("Dirección de correo electrónico -> ")
+                        telefono = input("Numero de teléfono -> ")
+                        direccion = input("Dirección de vivienda -> ")
+
+                        while True:
+                            password = input("Contraseña -> ")
+                            confirm_password = input("Confirmar contraseña -> ")
+                            if password != confirm_password:
+                                print("\n¡Las contraseñas no coninciden!\nAsegurese de escribirlas bien\n")
+                            else:
+                                break
+                        if(roll == 'A'):
+                            admin = Administrador(baseAdmin.getIdIncremental(),nombre,apellido,cedula,correo,password,"",telefono,direccion)
+                            baseAdmin.insertarAdmin(admin)
+                            print("\n¡Registro realizado exitosamente!\n")
+                            print(admin)
+                            break
+                        # inicio = time.time()
+                        # fin = time.time()
+                        # listaClientes.__str__()
+                        # print("Tiempo:", fin - inicio, "segundos")
                     else:
-                        break
-
-                correo = input("Dirección de correo electrónico -> ")
-                telefono = input("Numero de teléfono -> ")
-                direccion = input("Dirección de vivienda -> ")
-
-                while True:
-                    password = input("Contraseña -> ")
-                    confirm_password = input("Confirmar contraseña -> ")
-                    if password != confirm_password:
-                        print("\n¡Las contraseñas no coninciden!\nAsegurese de escribirlas bien\n")
-                    else:
-                        break
-
-                id_1 = int(baseDatos.getCliente().getId())
-                c1 = Cliente(id_1 + 1, nombre, apellido, cedula, correo, password, "12123.jpg", telefono, direccion)
-                print("\n¡Registro realizado exitosamente!\n")
-                print(c1)
-                listaClientes.append(c1)
-
-                # inicio = time.time()
-                # fin = time.time()
-                # listaClientes.__str__()
-                # print("Tiempo:", fin - inicio, "segundos")
+                        print("Seleccione una ópción válida")
 
             elif d1 == "3":
 
@@ -206,7 +268,7 @@ def inicio(baseAdmin, baseClient, baseIncident):
             else:
                 print("Error -> ¡Ingrese una opción válida!")
         except Exception as e:
-            print(e, "Error -> ¡Ingrese una opción válida!")
+            print("Error -> ¡Ingrese una opción válida!")
 
 
 if __name__ == '__main__':
@@ -215,10 +277,11 @@ if __name__ == '__main__':
             "./Resources/Data_Cliente/data100mil_2.csv", "./Resources/Data_Cliente/data100mil_3.csv",
             "./Resources/Data_Cliente/data100mil_4.csv", "./Resources/Data_Cliente/data100mil_5.csv", "./Resources/Data_Cliente/data100mil_8.csv"]
 
-    pathAdmin = ["./Resources/Data_Cliente/datamil.csv"]
+    pathAdmin = ["./Resources/Data_Administrador/datamil.csv"]
 
+    #Cliente: 839499702 pass: nBPPyLvRLKgSEQIgUYB9
 
-    # start = time.time()
+    #Administrador: 753710276 pass: jhmWonudFSeR1MqH8uAP
 
     resultsClientes = []
     resultsClientes = listaArchivo(pathClientes, 1)
@@ -251,24 +314,14 @@ if __name__ == '__main__':
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path, 8))
     results.pop(len(results) - 1)'''
-    #438215871
 
-
+    print("")
+    d = datetime.now()
+    print(d.strftime('%d/%m/%Y %H:%M:%S'))
     baseAdministrador = AdministradorDAO()
     baseCliente = ClienteDAO()
     baseIncidente = IncidenteDAO()
 
     baseAdministrador.crearAVL(resultsAdmin)
     baseCliente.crearAVL(resultsClientes)
-    baseAdministrador.__str__(baseAdministrador.getRoot(),"",True)
-    client1 = baseAdministrador.searchID(baseAdministrador.getRoot(),'438215871')
-
-
-    print(client1.getNombre()+client1.getTelefono())
-
-    print(baseAdministrador.existIdentificacion("438215871"))
-    #print(baseAdministrador.getAdministrador())
-    # end = time.time()
-    # print("Execution time: " + str(end - start))
-
     inicio(baseAdministrador,baseCliente,baseIncidente)

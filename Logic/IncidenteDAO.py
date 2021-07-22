@@ -9,7 +9,7 @@ class IncidenteDAO:
         self.__incidente = Incidente("","", "", "", "")
         self.__root = None
         self.__archivo = None
-        self.__id_increment = 0
+        self.__id_increment = 1
 
     def crearAVL(self, archivo):
         for data in archivo:
@@ -17,21 +17,35 @@ class IncidenteDAO:
             self.__root = self.__arbol.insert_node(self.__root, self.getIncidente().getId(), self.getIncidente())
             self.__id_increment += 1
 
-    def insertarIncidente(self, client):
-        self.setCliente(client)
+    def insertar(self, incidente):
+        self.setIncidente1(incidente)
         self.__root = self.__arbol.insert_node(self.__root, self.getIncidente().getId(), self.getIncidente())
         self.__id_increment += 1
 
+    def obtenerIncidente(self, idCliente):
+        for i in range(1,self.__id_increment):
+            incidente = self.searchID(self.__root,i)
+            if(incidente.getIdCliente()==idCliente):
+                print(incidente)
+
+
+
+    def getIdIncremental(self):
+        return self.__id_increment
+
     def getIncidente(self):
-        return self.__cliente
+        return self.__incidente
+
+    def setIncidente1(self, Incidente):
+        self.__incidente = Incidente
 
     def setIncidente(self, data):
-        self.__incidente= Incidente(int(data[0]), data[1], data[2], data[3], data[4])
+        self.__incidente = Incidente(int(data[0]), data[1], data[2], data[3], data[4])
 
     def getRoot(self):
         return self.__root
 
-    def deleteIncidente(self,root, ID):
+    def delete(self,root, ID):
         self.__arbol.delete_node(root, ID)
         self.__id_increment -= 1
 
@@ -46,3 +60,6 @@ class IncidenteDAO:
                 return self.searchID(temp.right, key)
         except Exception:
             return "!Not found¡"
+
+    def __str__(self,currPtr, indent, last):
+        self.__arbol.printHelper(currPtr,indent,last)

@@ -28,6 +28,7 @@ class Persona:
 
     def getIdentificacion(self):
         return self.__identificacion
+
     def setIdentificacion(self,identificacion):
         self.__identificacion = identificacion
 
