@@ -66,9 +66,9 @@ def consultar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
     inicio = time.time()
     client = baseDatos.searchID(baseDatos.getRoot(),ident)
-    print(client)
     fin = time.time()
-    # print("Tiempo:", fin - inicio, "segundos")
+    print(client)
+    #print("Tiempo:", fin - inicio, "segundos")
 
 def eliminar(baseDatos):
     ident = input("Ingrese la identificación del usuario: ")
@@ -78,7 +78,7 @@ def eliminar(baseDatos):
     baseDatos.delete(baseDatos.getRoot(),ident)
     fin = time.time()
     print("Eliminado con exitó")
-    print("Tiempo:", fin - inicio, "segundos")
+    #print("Tiempo:", fin - inicio, "segundos")
 
 def loginCliente(baseAdmin,baseClient, baseIncident,idCliente):
     while True:
@@ -109,7 +109,7 @@ def loginCliente(baseAdmin,baseClient, baseIncident,idCliente):
                 print("Ingrese la descripcion del incidente: ")
                 descripcion = input()
                 print("Ingrese la dirección del incidente: ")
-                direccion = input()
+                direccion = baseClient.searchID(baseClient.getRoot(),idCliente).getDireccion()
                 incidente = Incidente(baseIncident.getIdIncremental(),descripcion,direccion,fecha.strftime('%d/%m/%Y %H:%M:%S'),idCliente)
                 baseIncident.insertar(incidente)
                 print(incidente)
@@ -149,7 +149,10 @@ def loginAdministrador(baseAdmin, baseClient, baseIncident):
                     if opcion == 1:
                         consultar(baseClient)
                     elif opcion == 2:
+                        inicio = time.time()
                         baseClient.__str__(baseClient.getRoot(),"",True)
+                        fin = time.time()
+                        #print("Tiempo:", fin - inicio, "segundos")
                     elif opcion == 3:
                         baseIncident.__str__(baseIncident.getRoot(),"",True)
                     elif opcion == 4:
@@ -167,7 +170,8 @@ def loginAdministrador(baseAdmin, baseClient, baseIncident):
                 eliminar(baseClient)
 
             elif opcion == "4":
-                inicio(baseAdmin,baseClient,baseIncident)
+                #inicio(baseAdmin,baseClient,baseIncident)
+                break
 
         except Exception as e:
             print("\nError : Ingrese una opción válida\n")
@@ -279,14 +283,19 @@ if __name__ == '__main__':
 
     pathAdmin = ["./Resources/Data_Administrador/datamil.csv"]
 
-    #Cliente: 839499702 pass: nBPPyLvRLKgSEQIgUYB9
+    #Cliente1: 179088036 pass: FwNlH4nPtViaR4jecJOL
+    #Cliente2: 82314933 pass: wDo5VnIELVwsccyiMIEL
 
     #Administrador: 753710276 pass: jhmWonudFSeR1MqH8uAP
 
     resultsClientes = []
     resultsClientes = listaArchivo(pathClientes, 1)
     resultsClientes.pop(0)
+    lent = len(resultsClientes)
     resultsClientes.pop(len(resultsClientes) - 1)
+
+
+
 
     resultsAdmin = []
     resultsAdmin = listaArchivo(pathAdmin, 0)
@@ -294,7 +303,7 @@ if __name__ == '__main__':
     resultsAdmin.pop(len(resultsAdmin) - 1)
 
 
-    '''results.extend(listaArchivo(path, 2))
+    '''resultsClientes.extend(listaArchivo(path, 2))
     results.pop(len(results) - 1)
     results.extend(listaArchivo(path,4))
     results.pop(len(results) - 1)
