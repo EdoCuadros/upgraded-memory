@@ -16,7 +16,6 @@ def listaArchivo(path, index):
         results = list(entrada)
     return results
 
-
 def actualizar(baseDatos):
     ident = input("Ingrese la identificación del usuario a actualizar: ")
     while True:
@@ -175,7 +174,6 @@ def loginAdministrador(baseAdmin, baseClient, baseIncident):
 
         except Exception as e:
             print("\nError : Ingrese una opción válida\n")
-
 
 def inicio(baseAdmin, baseClient, baseIncident):
     roll = True
