@@ -1,0 +1,183 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      4048,        173]
+NotebookOptionsPosition[      3263,        139]
+NotebookOutlinePosition[      3614,        155]
+CellTagsIndexPosition[      3571,        152]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Partial Fraction Decomposition", "Title"],
+
+Cell[CellGroupData[{
+
+Cell["Author", "Subsection"],
+
+Cell["\<\
+Eric W. Weisstein
+April 14, 2004\
+\>", "Text"],
+
+Cell[TextData[{
+ "This notebook downloaded from ",
+ ButtonBox["http://mathworld.wolfram.com/notebooks/Algebra/\
+PartialFractionDecomposition.nb",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/notebooks/Algebra/\
+PartialFractionDecomposition.nb"], None}],
+ "."
+}], "Text"],
+
+Cell[TextData[{
+ "For more information, see Eric's ",
+ StyleBox["MathWorld",
+  FontSlant->"Italic"],
+ " entry ",
+ ButtonBox["http://mathworld.wolfram.com/PartialFractionDecomposition.html",
+  BaseStyle->"Hyperlink",
+  ButtonData:>{
+    URL["http://mathworld.wolfram.com/PartialFractionDecomposition.html"], 
+    None}],
+ "."
+}], "Text"],
+
+Cell["\<\
+\[Copyright]2005 Wolfram Research, Inc. except for portions noted otherwise\
+\>", "Text"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Expand", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "-", "x"}], ")"}], "^", "2"}], 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}], 
+    RowBox[{"(", 
+     RowBox[{"1", "-", "x"}], ")"}], 
+    RowBox[{"(", 
+     RowBox[{"2", "-", 
+      RowBox[{"3", "x"}]}], ")"}]}], "]"}], "/", 
+  RowBox[{"Expand", "[", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", "+", "x"}], ")"}], "^", "2"}], 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{"2", "x"}]}], ")"}]}], ")"}], "]"}]}]], "Input"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"2", "-", 
+   RowBox[{"7", " ", "x"}], "+", 
+   RowBox[{"6", " ", 
+    SuperscriptBox["x", "2"]}], "+", 
+   RowBox[{"4", " ", 
+    SuperscriptBox["x", "3"]}], "-", 
+   RowBox[{"8", " ", 
+    SuperscriptBox["x", "4"]}], "+", 
+   RowBox[{"3", " ", 
+    SuperscriptBox["x", "5"]}]}], 
+  RowBox[{"1", "-", 
+   RowBox[{"3", " ", 
+    SuperscriptBox["x", "2"]}], "-", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["x", "3"]}]}]]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Apart", "[", "%", "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", 
+   FractionBox["91", "8"]}], "+", 
+  FractionBox[
+   RowBox[{"25", " ", "x"}], "4"], "-", 
+  FractionBox[
+   RowBox[{"3", " ", 
+    SuperscriptBox["x", "2"]}], "2"], "+", 
+  FractionBox["40", 
+   RowBox[{"3", " ", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "x"}], ")"}]}]], "-", 
+  FractionBox["1", 
+   RowBox[{"24", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      RowBox[{"2", " ", "x"}]}], ")"}]}]]}]], "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{520, 715},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 47, 0, 148, "Title"],
+Cell[CellGroupData[{
+Cell[651, 26, 28, 0, 44, "Subsection"],
+Cell[682, 28, 56, 3, 49, "Text"],
+Cell[741, 33, 305, 9, 68, "Text"],
+Cell[1049, 44, 336, 11, 49, "Text"],
+Cell[1388, 57, 99, 2, 49, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1524, 64, 26, 0, 80, "Section"],
+Cell[CellGroupData[{
+Cell[1575, 68, 598, 22, 46, "Input"],
+Cell[2176, 92, 468, 16, 51, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2681, 113, 58, 1, 28, "Input"],
+Cell[2742, 116, 481, 18, 51, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
