@@ -1,0 +1,7 @@
+Hacer push en git
+
+1. Entrar a la carpeta.
+2. git add .
+3. git commit -m "Escribir mensaje"
+4. git push -u origin main
+
