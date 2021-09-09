@@ -1,0 +1,21 @@
+---------------ATAJOS DE TECLADO VIM-----------------
+
+---------------------MODOS---------------------------
+i ---------> Entra en modo insertar
+ctrl + c --> Sale de cualquier modo al estandar
+
+---------------------COMANDOS-------------------------
+: ---------> En modo estandar se presiona los dos puntos para poner comandos
+:q --------> Sale del archivo (quit)
+:w --------> Guarda el archivo (write)
+**Se pueden poner las letras seguidas**
+:wq -------> Guarda y sale del archivo
+
+-----------------------DESPLAZAMIENTO-------------------
+shift + a -----> va al final de la linea y entra en modo insertar
+shift + i -----> va al principio de la linea y entra en modo insertar
+o -------------> Hace un salto de linea y entra en modo insertar
+h,l,j,k -------> Desplazamiento hacia la derecha, izquierda,arriba y abajo respectivamente.
+u -------------> Revierte lo ultimo que se hizo (ctrl +z)
+
+
