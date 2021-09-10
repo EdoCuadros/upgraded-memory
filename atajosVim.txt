@@ -2,8 +2,9 @@
 
 ---------------------MODOS---------------------------
 i ---------> Entra en modo insertar
+v ---------> Entra en modo visual
 ctrl + c --> Sale de cualquier modo al estandar
-
+: ---------> Entra en modo comando
 ---------------------COMANDOS-------------------------
 : ---------> En modo estandar se presiona los dos puntos para poner comandos
 :q --------> Sale del archivo (quit)
@@ -17,5 +18,17 @@ shift + i -----> va al principio de la linea y entra en modo insertar
 o -------------> Hace un salto de linea y entra en modo insertar
 h,l,j,k -------> Desplazamiento hacia la derecha, izquierda,arriba y abajo respectivamente.
 u -------------> Revierte lo ultimo que se hizo (ctrl +z)
+} -------------> Desplazamiento hacia el siguiente bloque de codigo.
+-----------------------SELECCION Y MODIFICACION---------------
 
+shift + v -------> Selecciona toda la linea en modo visual.
+d ---------------> Cortar
+p ---------------> Pegar
+y ---------------> Copiar
+:%s/palabra/otra/g -------> Esto cambia palabra por otra en todo el archivo. 
+cw --------------> Borra la palabra y entra en modo insertar (change word)
 
+------------------------------MACROS---------------------------
+qm ------------> q va a empezar a grabar la macro y m es el nombre que se le dio.
+q -------------> para de grabar
+@m ------------> aplica el macro que se hizo (m es el nombre que se le da a la macro)
