@@ -103,7 +103,6 @@ primary_widgets = [
 
     widget.Systray(background=colors['dark'], padding=5),
 ]
-
 secondary_widgets = [
     *workspaces(),
 

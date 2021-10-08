@@ -47,7 +47,8 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Menu
     ([mod], "m", lazy.spawn("rofi -show drun")),
-
+    #Pavucontrol
+    ([mod], "c", lazy.spawn("pavucontrol")),
     # Window Nav
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 

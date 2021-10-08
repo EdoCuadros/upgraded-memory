@@ -8,7 +8,7 @@ from .keys import mod, keys
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
 groups = [Group(i) for i in [
-    "   ", "   ", "   ","   ","   ",
+    "   ", "   ","   ","   ","  "," ﭮ "
 ]]
 
 for i, group in enumerate(groups):
