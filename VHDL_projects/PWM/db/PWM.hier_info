@@ -1,0 +1,31 @@
+|XS3_alg
+cuenta_bin[0] => LessThan1.IN8
+cuenta_bin[0] => Add1.IN8
+cuenta_bin[0] => unidades.DATAA
+cuenta_bin[0] => cuenta_BCD[0].DATAIN
+cuenta_bin[1] => LessThan11.IN8
+cuenta_bin[1] => Add11.IN8
+cuenta_bin[1] => unidades.DATAA
+cuenta_bin[2] => LessThan9.IN8
+cuenta_bin[2] => Add9.IN8
+cuenta_bin[2] => unidades.DATAA
+cuenta_bin[3] => LessThan7.IN8
+cuenta_bin[3] => Add7.IN8
+cuenta_bin[3] => unidades.DATAA
+cuenta_bin[4] => LessThan5.IN8
+cuenta_bin[4] => Add5.IN8
+cuenta_bin[4] => unidades.DATAA
+cuenta_bin[5] => LessThan3.IN8
+cuenta_bin[5] => Add3.IN8
+cuenta_bin[5] => unidades.DATAA
+clk => ~NO_FANOUT~
+cuenta_BCD[0] <= cuenta_bin[0].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[1] <= cuenta_BCD[1].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[2] <= cuenta_BCD[2].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[3] <= cuenta_BCD[3].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[4] <= unidades.DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[5] <= cuenta_BCD[5].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[6] <= cuenta_BCD[6].DB_MAX_OUTPUT_PORT_TYPE
+cuenta_BCD[7] <= cuenta_BCD[7].DB_MAX_OUTPUT_PORT_TYPE
+
+

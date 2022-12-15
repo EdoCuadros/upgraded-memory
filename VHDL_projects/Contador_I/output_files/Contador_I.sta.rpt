@@ -1,0 +1,1447 @@
+Timing Analyzer report for Contador_I
+Thu Nov 03 11:13:07 2022
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Setup: 'div_frec:frec_Cont|salida'
+ 14. Slow 1200mV 85C Model Setup: 'div_frec:frec_Sel|salida'
+ 15. Slow 1200mV 85C Model Hold: 'div_frec:frec_Cont|salida'
+ 16. Slow 1200mV 85C Model Hold: 'div_frec:frec_Sel|salida'
+ 17. Slow 1200mV 85C Model Hold: 'clk'
+ 18. Slow 1200mV 85C Model Metastability Summary
+ 19. Slow 1200mV 0C Model Fmax Summary
+ 20. Slow 1200mV 0C Model Setup Summary
+ 21. Slow 1200mV 0C Model Hold Summary
+ 22. Slow 1200mV 0C Model Recovery Summary
+ 23. Slow 1200mV 0C Model Removal Summary
+ 24. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 25. Slow 1200mV 0C Model Setup: 'clk'
+ 26. Slow 1200mV 0C Model Setup: 'div_frec:frec_Cont|salida'
+ 27. Slow 1200mV 0C Model Setup: 'div_frec:frec_Sel|salida'
+ 28. Slow 1200mV 0C Model Hold: 'div_frec:frec_Cont|salida'
+ 29. Slow 1200mV 0C Model Hold: 'div_frec:frec_Sel|salida'
+ 30. Slow 1200mV 0C Model Hold: 'clk'
+ 31. Slow 1200mV 0C Model Metastability Summary
+ 32. Fast 1200mV 0C Model Setup Summary
+ 33. Fast 1200mV 0C Model Hold Summary
+ 34. Fast 1200mV 0C Model Recovery Summary
+ 35. Fast 1200mV 0C Model Removal Summary
+ 36. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 37. Fast 1200mV 0C Model Setup: 'clk'
+ 38. Fast 1200mV 0C Model Setup: 'div_frec:frec_Cont|salida'
+ 39. Fast 1200mV 0C Model Setup: 'div_frec:frec_Sel|salida'
+ 40. Fast 1200mV 0C Model Hold: 'div_frec:frec_Cont|salida'
+ 41. Fast 1200mV 0C Model Hold: 'div_frec:frec_Sel|salida'
+ 42. Fast 1200mV 0C Model Hold: 'clk'
+ 43. Fast 1200mV 0C Model Metastability Summary
+ 44. Multicorner Timing Analysis Summary
+ 45. Board Trace Model Assignments
+ 46. Input Transition Times
+ 47. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 48. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 49. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 50. Setup Transfers
+ 51. Hold Transfers
+ 52. Report TCCS
+ 53. Report RSKM
+ 54. Unconstrained Paths Summary
+ 55. Clock Status Summary
+ 56. Unconstrained Output Ports
+ 57. Unconstrained Output Ports
+ 58. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; Contador_I                                          ;
+; Device Family         ; Cyclone IV E                                        ;
+; Device Name           ; EP4CE10E22C8                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.04        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   2.6%      ;
+;     Processors 3-4         ;   0.5%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                               ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; Clock Name                ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                       ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; clk                       ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                       ;
+; div_frec:frec_Cont|salida ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div_frec:frec_Cont|salida } ;
+; div_frec:frec_Sel|salida  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { div_frec:frec_Sel|salida }  ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                ; Note                                           ;
++------------+-----------------+---------------------------+------------------------------------------------+
+; 187.44 MHz ; 187.44 MHz      ; clk                       ;                                                ;
+; 730.99 MHz ; 402.09 MHz      ; div_frec:frec_Cont|salida ; limit due to minimum period restriction (tmin) ;
+; 1066.1 MHz ; 402.09 MHz      ; div_frec:frec_Sel|salida  ; limit due to minimum period restriction (tmin) ;
++------------+-----------------+---------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++----------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -4.335 ; -134.588      ;
+; div_frec:frec_Cont|salida ; -0.368 ; -1.020        ;
+; div_frec:frec_Sel|salida  ; 0.062  ; 0.000         ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; div_frec:frec_Cont|salida ; 0.453 ; 0.000         ;
+; div_frec:frec_Sel|salida  ; 0.465 ; 0.000         ;
+; clk                       ; 0.744 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary  ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -3.000 ; -89.246       ;
+; div_frec:frec_Cont|salida ; -1.487 ; -5.948        ;
+; div_frec:frec_Sel|salida  ; -1.487 ; -2.974        ;
++---------------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                           ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.335 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 5.254      ;
+; -4.324 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 5.245      ;
+; -4.306 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.228      ;
+; -4.298 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.220      ;
+; -4.253 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.079     ; 5.175      ;
+; -4.246 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.168      ;
+; -4.243 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.165      ;
+; -4.236 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 5.155      ;
+; -4.235 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.079     ; 5.157      ;
+; -4.219 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 5.138      ;
+; -4.207 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 5.126      ;
+; -4.193 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.115      ;
+; -4.163 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.085      ;
+; -4.144 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 5.065      ;
+; -4.141 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 5.061      ;
+; -4.115 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 5.036      ;
+; -4.096 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.018      ;
+; -4.091 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 5.013      ;
+; -4.087 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 5.008      ;
+; -4.052 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.974      ;
+; -4.031 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.950      ;
+; -4.030 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.949      ;
+; -4.027 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.946      ;
+; -4.021 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.940      ;
+; -4.003 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 4.924      ;
+; -3.998 ; div_frec:frec_Cont|cuenta[14] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 4.918      ;
+; -3.992 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.913      ;
+; -3.978 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.897      ;
+; -3.964 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.886      ;
+; -3.950 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.871      ;
+; -3.948 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.869      ;
+; -3.931 ; div_frec:frec_Cont|cuenta[22] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 4.851      ;
+; -3.919 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.838      ;
+; -3.878 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.799      ;
+; -3.874 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.793      ;
+; -3.863 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.785      ;
+; -3.850 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 4.770      ;
+; -3.846 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.768      ;
+; -3.838 ; div_frec:frec_Cont|cuenta[20] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 4.758      ;
+; -3.836 ; div_frec:frec_Sel|cuenta[10]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.757      ;
+; -3.828 ; div_frec:frec_Sel|cuenta[11]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.749      ;
+; -3.827 ; div_frec:frec_Cont|cuenta[21] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 4.748      ;
+; -3.820 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.742      ;
+; -3.816 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.737      ;
+; -3.805 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 4.726      ;
+; -3.739 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.080     ; 4.660      ;
+; -3.696 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.079     ; 4.618      ;
+; -3.645 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.082     ; 4.564      ;
+; -3.627 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.548      ;
+; -3.593 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.514      ;
+; -3.580 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.501      ;
+; -3.565 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.486      ;
+; -3.542 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.463      ;
+; -3.435 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.356      ;
+; -3.328 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.249      ;
+; -3.320 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.241      ;
+; -3.298 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.217      ;
+; -3.279 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.198      ;
+; -3.261 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 4.184      ;
+; -3.254 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.175      ;
+; -3.243 ; div_frec:frec_Cont|cuenta[24] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.081     ; 4.163      ;
+; -3.204 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.125      ;
+; -3.202 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.121      ;
+; -3.200 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.080     ; 4.121      ;
+; -3.192 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.113      ;
+; -3.183 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.102      ;
+; -3.176 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.098      ;
+; -3.172 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.077     ; 4.096      ;
+; -3.168 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.090      ;
+; -3.167 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.089      ;
+; -3.164 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.086      ;
+; -3.156 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.077      ;
+; -3.155 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.076      ;
+; -3.154 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.077     ; 4.078      ;
+; -3.152 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.071      ;
+; -3.144 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.065      ;
+; -3.139 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.060      ;
+; -3.133 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.082     ; 4.052      ;
+; -3.118 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.039      ;
+; -3.114 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.036      ;
+; -3.114 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.034      ;
+; -3.113 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.034      ;
+; -3.113 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.033      ;
+; -3.107 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 4.025      ;
+; -3.094 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.081     ; 4.014      ;
+; -3.084 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 4.006      ;
+; -3.081 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 4.004      ;
+; -3.079 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.080     ; 4.000      ;
+; -3.062 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[6]   ; clk          ; clk         ; 1.000        ; -0.079     ; 3.984      ;
+; -3.062 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[12]  ; clk          ; clk         ; 1.000        ; -0.079     ; 3.984      ;
+; -3.060 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.079     ; 3.982      ;
+; -3.058 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.082     ; 3.977      ;
+; -3.054 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[6]   ; clk          ; clk         ; 1.000        ; -0.079     ; 3.976      ;
+; -3.054 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[12]  ; clk          ; clk         ; 1.000        ; -0.079     ; 3.976      ;
+; -3.039 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.082     ; 3.958      ;
+; -3.034 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.078     ; 3.957      ;
+; -3.022 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 3.940      ;
+; -3.010 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.079     ; 3.932      ;
+; -3.010 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.082     ; 3.929      ;
+; -3.009 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.083     ; 3.927      ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'div_frec:frec_Cont|salida'                                                                                                                      ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; -0.368 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 1.288      ;
+; -0.327 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 1.247      ;
+; -0.325 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 1.245      ;
+; -0.317 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 1.237      ;
+; -0.041 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.961      ;
+; -0.041 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.961      ;
+; -0.039 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.959      ;
+; 0.062  ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.858      ;
+; 0.062  ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.858      ;
+; 0.062  ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.858      ;
+; 0.062  ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.081     ; 0.858      ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'div_frec:frec_Sel|salida'                                                                                                            ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.062 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.081     ; 0.858      ;
+; 0.062 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.081     ; 0.858      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'div_frec:frec_Cont|salida'                                                                                                                      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.453 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.746      ;
+; 0.465 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.758      ;
+; 0.533 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.826      ;
+; 0.535 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.828      ;
+; 0.535 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 0.828      ;
+; 0.774 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 1.067      ;
+; 0.775 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 1.068      ;
+; 0.775 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 1.068      ;
+; 0.795 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.081      ; 1.088      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'div_frec:frec_Sel|salida'                                                                                                             ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.465 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.081      ; 0.758      ;
+; 0.465 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.081      ; 0.758      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                        ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock              ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; 0.744 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.036      ;
+; 0.745 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.037      ;
+; 0.747 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.039      ;
+; 0.748 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.040      ;
+; 0.761 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.053      ;
+; 0.761 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.053      ;
+; 0.762 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.762 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.762 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.762 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|cuenta[17] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.762 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.762 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.054      ;
+; 0.763 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|cuenta[15] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.055      ;
+; 0.763 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.055      ;
+; 0.764 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|cuenta[23] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[25] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.764 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.056      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.765 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.057      ;
+; 0.766 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.058      ;
+; 0.767 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.059      ;
+; 0.767 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.059      ;
+; 0.767 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.059      ;
+; 0.767 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.059      ;
+; 0.941 ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida  ; clk         ; 0.000        ; 2.591      ; 4.035      ;
+; 1.099 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.391      ;
+; 1.100 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.392      ;
+; 1.108 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.400      ;
+; 1.109 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.401      ;
+; 1.116 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.408      ;
+; 1.117 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.079      ; 1.408      ;
+; 1.117 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.117 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.409      ;
+; 1.118 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.410      ;
+; 1.118 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.410      ;
+; 1.119 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.411      ;
+; 1.119 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.411      ;
+; 1.119 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.411      ;
+; 1.119 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.411      ;
+; 1.121 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.413      ;
+; 1.125 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.417      ;
+; 1.125 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.417      ;
+; 1.125 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.417      ;
+; 1.126 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.418      ;
+; 1.126 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.418      ;
+; 1.126 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.418      ;
+; 1.126 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.418      ;
+; 1.127 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.419      ;
+; 1.127 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.419      ;
+; 1.127 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.419      ;
+; 1.127 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.419      ;
+; 1.128 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.420      ;
+; 1.128 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.420      ;
+; 1.128 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.420      ;
+; 1.128 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.420      ;
+; 1.130 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.422      ;
+; 1.134 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.426      ;
+; 1.135 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.427      ;
+; 1.135 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.427      ;
+; 1.135 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.427      ;
+; 1.135 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.427      ;
+; 1.135 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.427      ;
+; 1.136 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.428      ;
+; 1.136 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.428      ;
+; 1.136 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.428      ;
+; 1.137 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.429      ;
+; 1.137 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.429      ;
+; 1.140 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.079      ; 1.431      ;
+; 1.140 ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida ; clk         ; 0.000        ; 2.593      ; 4.236      ;
+; 1.166 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[6]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.458      ;
+; 1.167 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.459      ;
+; 1.170 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[12]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.462      ;
+; 1.230 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.522      ;
+; 1.231 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.523      ;
+; 1.239 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.531      ;
+; 1.240 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.532      ;
+; 1.247 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.539      ;
+; 1.248 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|cuenta[17] ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
+; 1.248 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.080      ; 1.540      ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+
+
+-----------------------------------------------
+; Slow 1200mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                          ;
++-------------+-----------------+---------------------------+------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name                ; Note                                           ;
++-------------+-----------------+---------------------------+------------------------------------------------+
+; 196.58 MHz  ; 196.58 MHz      ; clk                       ;                                                ;
+; 821.02 MHz  ; 402.09 MHz      ; div_frec:frec_Cont|salida ; limit due to minimum period restriction (tmin) ;
+; 1189.06 MHz ; 402.09 MHz      ; div_frec:frec_Sel|salida  ; limit due to minimum period restriction (tmin) ;
++-------------+-----------------+---------------------------+------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++----------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                 ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -4.087 ; -117.542      ;
+; div_frec:frec_Cont|salida ; -0.218 ; -0.603        ;
+; div_frec:frec_Sel|salida  ; 0.159  ; 0.000         ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; div_frec:frec_Cont|salida ; 0.402 ; 0.000         ;
+; div_frec:frec_Sel|salida  ; 0.416 ; 0.000         ;
+; clk                       ; 0.691 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -3.000 ; -89.246       ;
+; div_frec:frec_Cont|salida ; -1.487 ; -5.948        ;
+; div_frec:frec_Sel|salida  ; -1.487 ; -2.974        ;
++---------------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                            ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.087 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 5.017      ;
+; -4.065 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.993      ;
+; -4.030 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.961      ;
+; -4.024 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.955      ;
+; -3.963 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.071     ; 4.894      ;
+; -3.959 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.071     ; 4.890      ;
+; -3.936 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.867      ;
+; -3.930 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.861      ;
+; -3.929 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.857      ;
+; -3.919 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.847      ;
+; -3.913 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.841      ;
+; -3.889 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.820      ;
+; -3.884 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.815      ;
+; -3.875 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.805      ;
+; -3.854 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.785      ;
+; -3.837 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.768      ;
+; -3.811 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.739      ;
+; -3.808 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.738      ;
+; -3.782 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.712      ;
+; -3.773 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.704      ;
+; -3.772 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.702      ;
+; -3.731 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.662      ;
+; -3.730 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.658      ;
+; -3.715 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.645      ;
+; -3.708 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.636      ;
+; -3.708 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.636      ;
+; -3.707 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.637      ;
+; -3.678 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.608      ;
+; -3.666 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.594      ;
+; -3.660 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.588      ;
+; -3.632 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.562      ;
+; -3.628 ; div_frec:frec_Cont|cuenta[14] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.558      ;
+; -3.610 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.540      ;
+; -3.606 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.536      ;
+; -3.601 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.532      ;
+; -3.582 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.510      ;
+; -3.574 ; div_frec:frec_Cont|cuenta[22] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.504      ;
+; -3.558 ; div_frec:frec_Cont|cuenta[21] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.488      ;
+; -3.552 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.483      ;
+; -3.541 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.471      ;
+; -3.522 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.453      ;
+; -3.519 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.449      ;
+; -3.489 ; div_frec:frec_Cont|cuenta[20] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.419      ;
+; -3.478 ; div_frec:frec_Sel|cuenta[10]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.408      ;
+; -3.471 ; div_frec:frec_Sel|cuenta[11]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.401      ;
+; -3.454 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 4.384      ;
+; -3.446 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.071     ; 4.377      ;
+; -3.391 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.074     ; 4.319      ;
+; -3.336 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.266      ;
+; -3.334 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.264      ;
+; -3.323 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.253      ;
+; -3.287 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.217      ;
+; -3.277 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.207      ;
+; -3.175 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 4.105      ;
+; -3.084 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.014      ;
+; -3.078 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 4.008      ;
+; -3.025 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.956      ;
+; -3.003 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.932      ;
+; -2.949 ; div_frec:frec_Cont|cuenta[24] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.072     ; 3.879      ;
+; -2.942 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.072     ; 3.872      ;
+; -2.918 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.073     ; 3.847      ;
+; -2.908 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.838      ;
+; -2.901 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.833      ;
+; -2.898 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.829      ;
+; -2.897 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.070     ; 3.829      ;
+; -2.896 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 3.823      ;
+; -2.892 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.823      ;
+; -2.891 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.821      ;
+; -2.889 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.819      ;
+; -2.884 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.815      ;
+; -2.879 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.809      ;
+; -2.878 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.809      ;
+; -2.867 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.796      ;
+; -2.859 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.788      ;
+; -2.857 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.074     ; 3.785      ;
+; -2.857 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.786      ;
+; -2.848 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[12]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.779      ;
+; -2.847 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[6]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.778      ;
+; -2.844 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.774      ;
+; -2.842 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[12]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.773      ;
+; -2.841 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[6]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.772      ;
+; -2.841 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.074     ; 3.769      ;
+; -2.837 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.768      ;
+; -2.832 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.763      ;
+; -2.813 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.744      ;
+; -2.794 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 3.724      ;
+; -2.790 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.072     ; 3.720      ;
+; -2.785 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.715      ;
+; -2.772 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.072     ; 3.702      ;
+; -2.770 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.074     ; 3.698      ;
+; -2.761 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.690      ;
+; -2.760 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 3.687      ;
+; -2.754 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.074     ; 3.682      ;
+; -2.750 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.075     ; 3.677      ;
+; -2.749 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.073     ; 3.678      ;
+; -2.746 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.677      ;
+; -2.732 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.074     ; 3.660      ;
+; -2.728 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.071     ; 3.659      ;
+; -2.722 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.653      ;
+; -2.721 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.071     ; 3.652      ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'div_frec:frec_Cont|salida'                                                                                                                       ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; -0.218 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 1.148      ;
+; -0.195 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 1.125      ;
+; -0.190 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 1.120      ;
+; -0.183 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 1.113      ;
+; 0.057  ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.873      ;
+; 0.057  ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.873      ;
+; 0.059  ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.871      ;
+; 0.160  ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.770      ;
+; 0.160  ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.770      ;
+; 0.160  ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.770      ;
+; 0.160  ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.072     ; 0.770      ;
++--------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'div_frec:frec_Sel|salida'                                                                                                             ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.159 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.073     ; 0.770      ;
+; 0.159 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.073     ; 0.770      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'div_frec:frec_Cont|salida'                                                                                                                       ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.402 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.669      ;
+; 0.417 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.684      ;
+; 0.492 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.759      ;
+; 0.494 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.761      ;
+; 0.494 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.761      ;
+; 0.720 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.987      ;
+; 0.720 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.987      ;
+; 0.720 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 0.987      ;
+; 0.748 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.072      ; 1.015      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'div_frec:frec_Sel|salida'                                                                                                              ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.416 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.073      ; 0.684      ;
+; 0.416 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.073      ; 0.684      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                         ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock              ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; 0.691 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.958      ;
+; 0.693 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.960      ;
+; 0.697 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.964      ;
+; 0.697 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.964      ;
+; 0.704 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|cuenta[17] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.704 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.704 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.704 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.972      ;
+; 0.705 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.705 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.705 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.706 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.973      ;
+; 0.706 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[25] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.706 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|cuenta[15] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.706 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.974      ;
+; 0.707 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.974      ;
+; 0.707 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.707 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.707 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.975      ;
+; 0.708 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|cuenta[23] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.976      ;
+; 0.709 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.709 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.976      ;
+; 0.710 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.977      ;
+; 0.710 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.977      ;
+; 0.710 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.977      ;
+; 0.710 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.710 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.710 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.978      ;
+; 0.711 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.711 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.712 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.073      ; 0.980      ;
+; 0.713 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.980      ;
+; 0.713 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.980      ;
+; 0.713 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 0.980      ;
+; 0.894 ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida  ; clk         ; 0.000        ; 2.382      ; 3.741      ;
+; 1.013 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.280      ;
+; 1.015 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.282      ;
+; 1.016 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.283      ;
+; 1.016 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.283      ;
+; 1.025 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.293      ;
+; 1.026 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.294      ;
+; 1.026 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.294      ;
+; 1.026 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.294      ;
+; 1.026 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.294      ;
+; 1.027 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.294      ;
+; 1.027 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.294      ;
+; 1.027 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.294      ;
+; 1.027 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.295      ;
+; 1.028 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.071      ; 1.294      ;
+; 1.028 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.295      ;
+; 1.028 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.296      ;
+; 1.028 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.296      ;
+; 1.029 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.297      ;
+; 1.029 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.297      ;
+; 1.030 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.297      ;
+; 1.030 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.297      ;
+; 1.031 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.031 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.031 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.031 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.031 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.031 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.299      ;
+; 1.032 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.299      ;
+; 1.033 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.300      ;
+; 1.034 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.301      ;
+; 1.034 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.301      ;
+; 1.043 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.310      ;
+; 1.043 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.310      ;
+; 1.043 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.311      ;
+; 1.044 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.311      ;
+; 1.044 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.312      ;
+; 1.044 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.312      ;
+; 1.045 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.312      ;
+; 1.045 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.313      ;
+; 1.046 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.313      ;
+; 1.047 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.314      ;
+; 1.047 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.314      ;
+; 1.050 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.071      ; 1.316      ;
+; 1.076 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[6]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.343      ;
+; 1.077 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.344      ;
+; 1.081 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[12]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.348      ;
+; 1.096 ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida ; clk         ; 0.000        ; 2.383      ; 3.944      ;
+; 1.108 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.375      ;
+; 1.112 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.379      ;
+; 1.119 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.387      ;
+; 1.120 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.387      ;
+; 1.120 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.388      ;
+; 1.121 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.388      ;
+; 1.122 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.390      ;
+; 1.123 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.390      ;
+; 1.125 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.072      ; 1.392      ;
+; 1.125 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|cuenta[17] ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.393      ;
+; 1.126 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.073      ; 1.394      ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Slow 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                 ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -1.385 ; -26.906       ;
+; div_frec:frec_Cont|salida ; 0.397  ; 0.000         ;
+; div_frec:frec_Sel|salida  ; 0.592  ; 0.000         ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; div_frec:frec_Cont|salida ; 0.187 ; 0.000         ;
+; div_frec:frec_Sel|salida  ; 0.194 ; 0.000         ;
+; clk                       ; 0.296 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk                       ; -3.000 ; -64.734       ;
+; div_frec:frec_Cont|salida ; -1.000 ; -4.000        ;
+; div_frec:frec_Sel|salida  ; -1.000 ; -2.000        ;
++---------------------------+--------+---------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                            ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.385 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.336      ;
+; -1.343 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.296      ;
+; -1.330 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.033     ; 2.284      ;
+; -1.326 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.033     ; 2.280      ;
+; -1.289 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.240      ;
+; -1.286 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.237      ;
+; -1.275 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.227      ;
+; -1.265 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.216      ;
+; -1.265 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.216      ;
+; -1.263 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.215      ;
+; -1.262 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.214      ;
+; -1.260 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.212      ;
+; -1.250 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.202      ;
+; -1.247 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.198      ;
+; -1.224 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.176      ;
+; -1.218 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.171      ;
+; -1.212 ; div_frec:frec_Cont|cuenta[14] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.163      ;
+; -1.212 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.165      ;
+; -1.208 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.160      ;
+; -1.201 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.154      ;
+; -1.194 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.145      ;
+; -1.183 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.134      ;
+; -1.179 ; div_frec:frec_Cont|cuenta[22] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.130      ;
+; -1.175 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.127      ;
+; -1.175 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.127      ;
+; -1.173 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.124      ;
+; -1.173 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.124      ;
+; -1.158 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.109      ;
+; -1.151 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.102      ;
+; -1.149 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.100      ;
+; -1.149 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.100      ;
+; -1.145 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.098      ;
+; -1.140 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.091      ;
+; -1.140 ; div_frec:frec_Cont|cuenta[21] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.093      ;
+; -1.136 ; div_frec:frec_Sel|cuenta[11]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.087      ;
+; -1.135 ; div_frec:frec_Sel|cuenta[10]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.086      ;
+; -1.134 ; div_frec:frec_Cont|cuenta[20] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.085      ;
+; -1.128 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 2.079      ;
+; -1.119 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.071      ;
+; -1.103 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.055      ;
+; -1.103 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.055      ;
+; -1.086 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 2.038      ;
+; -1.075 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 2.028      ;
+; -1.072 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.023      ;
+; -1.054 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 2.005      ;
+; -1.044 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.034     ; 1.997      ;
+; -1.037 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.035     ; 1.989      ;
+; -1.033 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.984      ;
+; -1.021 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 1.972      ;
+; -1.009 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.960      ;
+; -0.977 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.928      ;
+; -0.971 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.922      ;
+; -0.955 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.906      ;
+; -0.918 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.869      ;
+; -0.889 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.840      ;
+; -0.884 ; div_frec:frec_Cont|cuenta[24] ; div_frec:frec_Cont|salida     ; clk          ; clk         ; 1.000        ; -0.036     ; 1.835      ;
+; -0.882 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.833      ;
+; -0.845 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.796      ;
+; -0.838 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.789      ;
+; -0.828 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.779      ;
+; -0.828 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|salida      ; clk          ; clk         ; 1.000        ; -0.036     ; 1.779      ;
+; -0.824 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.775      ;
+; -0.821 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.772      ;
+; -0.817 ; div_frec:frec_Cont|cuenta[11] ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.768      ;
+; -0.814 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.765      ;
+; -0.814 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.764      ;
+; -0.802 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.752      ;
+; -0.801 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.751      ;
+; -0.797 ; div_frec:frec_Cont|cuenta[12] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 1.745      ;
+; -0.786 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.034     ; 1.739      ;
+; -0.780 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.730      ;
+; -0.777 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.728      ;
+; -0.776 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.726      ;
+; -0.773 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.727      ;
+; -0.770 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.721      ;
+; -0.769 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.033     ; 1.723      ;
+; -0.760 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.711      ;
+; -0.759 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 1.707      ;
+; -0.757 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.708      ;
+; -0.757 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.707      ;
+; -0.755 ; div_frec:frec_Cont|cuenta[18] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.037     ; 1.705      ;
+; -0.751 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[20] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.702      ;
+; -0.750 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.701      ;
+; -0.748 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.039     ; 1.696      ;
+; -0.743 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[21] ; clk          ; clk         ; 1.000        ; -0.038     ; 1.692      ;
+; -0.743 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|cuenta[24] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.694      ;
+; -0.742 ; div_frec:frec_Cont|cuenta[16] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.693      ;
+; -0.738 ; div_frec:frec_Cont|cuenta[19] ; div_frec:frec_Cont|cuenta[19] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.689      ;
+; -0.736 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|cuenta[22] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.687      ;
+; -0.733 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.038     ; 1.682      ;
+; -0.732 ; div_frec:frec_Cont|cuenta[13] ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.683      ;
+; -0.732 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[21] ; clk          ; clk         ; 1.000        ; -0.038     ; 1.681      ;
+; -0.727 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.036     ; 1.678      ;
+; -0.721 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.036     ; 1.672      ;
+; -0.717 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.036     ; 1.668      ;
+; -0.716 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[13] ; clk          ; clk         ; 1.000        ; -0.036     ; 1.667      ;
+; -0.716 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.666      ;
+; -0.714 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[15]  ; clk          ; clk         ; 1.000        ; -0.037     ; 1.664      ;
+; -0.711 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[6]  ; clk          ; clk         ; 1.000        ; -0.036     ; 1.662      ;
+; -0.709 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[0]   ; clk          ; clk         ; 1.000        ; -0.036     ; 1.660      ;
++--------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'div_frec:frec_Cont|salida'                                                                                                                      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.397 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.554      ;
+; 0.419 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.532      ;
+; 0.419 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.532      ;
+; 0.420 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.531      ;
+; 0.546 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.405      ;
+; 0.546 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.405      ;
+; 0.549 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.402      ;
+; 0.592 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 1.000        ; -0.036     ; 0.359      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'div_frec:frec_Sel|salida'                                                                                                             ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.592 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.036     ; 0.359      ;
+; 0.592 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 1.000        ; -0.036     ; 0.359      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'div_frec:frec_Cont|salida'                                                                                                                       ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node                          ; Launch Clock              ; Latch Clock               ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+; 0.187 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.307      ;
+; 0.187 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.307      ;
+; 0.194 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF0|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.314      ;
+; 0.217 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.337      ;
+; 0.219 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.339      ;
+; 0.219 ; Contador:ent_cont_un|JK:FF0|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.339      ;
+; 0.312 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.432      ;
+; 0.312 ; Contador:ent_cont_un|JK:FF1|qout ; Contador:ent_cont_un|JK:FF2|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.432      ;
+; 0.312 ; Contador:ent_cont_un|JK:FF3|qout ; Contador:ent_cont_un|JK:FF1|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.432      ;
+; 0.327 ; Contador:ent_cont_un|JK:FF2|qout ; Contador:ent_cont_un|JK:FF3|qout ; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 0.000        ; 0.036      ; 0.447      ;
++-------+----------------------------------+----------------------------------+---------------------------+---------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'div_frec:frec_Sel|salida'                                                                                                              ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; Slack ; From Node                    ; To Node                      ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+; 0.194 ; Selector:ent_sel|temp_gnd[1] ; Selector:ent_sel|temp_gnd[1] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.036      ; 0.314      ;
+; 0.194 ; Selector:ent_sel|temp_gnd[0] ; Selector:ent_sel|temp_gnd[0] ; div_frec:frec_Sel|salida ; div_frec:frec_Sel|salida ; 0.000        ; 0.036      ; 0.314      ;
++-------+------------------------------+------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                         ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock              ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+; 0.296 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.417      ;
+; 0.297 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.418      ;
+; 0.298 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.299 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.420      ;
+; 0.300 ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida      ; div_frec:frec_Sel|salida  ; clk         ; 0.000        ; 1.177      ; 1.696      ;
+; 0.302 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.423      ;
+; 0.303 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.303 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.304 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; div_frec:frec_Sel|cuenta[27]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; div_frec:frec_Sel|cuenta[9]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.304 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.424      ;
+; 0.305 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[17] ; div_frec:frec_Cont|cuenta[17] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[25] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[27] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[15] ; div_frec:frec_Cont|cuenta[15] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[5]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.305 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.425      ;
+; 0.306 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.306 ; div_frec:frec_Cont|cuenta[23] ; div_frec:frec_Cont|cuenta[23] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.306 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.426      ;
+; 0.307 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.307 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.307 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; div_frec:frec_Cont|cuenta[10] ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.307 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.427      ;
+; 0.308 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.428      ;
+; 0.371 ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida     ; div_frec:frec_Cont|salida ; clk         ; 0.000        ; 1.175      ; 1.765      ;
+; 0.445 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.566      ;
+; 0.446 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.452 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.573      ;
+; 0.452 ; div_frec:frec_Sel|cuenta[13]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.572      ;
+; 0.452 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.573      ;
+; 0.453 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.574      ;
+; 0.453 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.573      ;
+; 0.453 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.573      ;
+; 0.454 ; div_frec:frec_Sel|cuenta[21]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.575      ;
+; 0.454 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.575      ;
+; 0.454 ; div_frec:frec_Cont|cuenta[9]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.574      ;
+; 0.454 ; div_frec:frec_Cont|cuenta[25] ; div_frec:frec_Cont|cuenta[26] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.574      ;
+; 0.455 ; div_frec:frec_Sel|cuenta[23]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.576      ;
+; 0.455 ; div_frec:frec_Cont|cuenta[7]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.575      ;
+; 0.456 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[17]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.577      ;
+; 0.456 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.577      ;
+; 0.457 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.578      ;
+; 0.459 ; div_frec:frec_Sel|cuenta[16]  ; div_frec:frec_Sel|cuenta[18]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.580      ;
+; 0.460 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[6]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.581      ;
+; 0.460 ; div_frec:frec_Sel|cuenta[18]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.581      ;
+; 0.462 ; div_frec:frec_Sel|cuenta[15]  ; div_frec:frec_Sel|cuenta[15]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.583      ;
+; 0.462 ; div_frec:frec_Sel|cuenta[4]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.583      ;
+; 0.463 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.584      ;
+; 0.463 ; div_frec:frec_Cont|cuenta[4]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.583      ;
+; 0.464 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[12]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.585      ;
+; 0.464 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.585      ;
+; 0.464 ; div_frec:frec_Sel|cuenta[8]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.585      ;
+; 0.464 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[23]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.585      ;
+; 0.464 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[1]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.584      ;
+; 0.465 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[1]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.586      ;
+; 0.465 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[25]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.586      ;
+; 0.465 ; div_frec:frec_Sel|cuenta[26]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.586      ;
+; 0.465 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.586      ;
+; 0.465 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.585      ;
+; 0.465 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[9]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.585      ;
+; 0.466 ; div_frec:frec_Sel|cuenta[20]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.587      ;
+; 0.466 ; div_frec:frec_Sel|cuenta[14]  ; div_frec:frec_Sel|cuenta[16]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.587      ;
+; 0.466 ; div_frec:frec_Cont|cuenta[26] ; div_frec:frec_Cont|cuenta[27] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.586      ;
+; 0.466 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[7]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.586      ;
+; 0.467 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[13]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.588      ;
+; 0.467 ; div_frec:frec_Sel|cuenta[2]   ; div_frec:frec_Sel|cuenta[4]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.588      ;
+; 0.467 ; div_frec:frec_Sel|cuenta[22]  ; div_frec:frec_Sel|cuenta[24]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.588      ;
+; 0.467 ; div_frec:frec_Cont|cuenta[0]  ; div_frec:frec_Cont|cuenta[2]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.587      ;
+; 0.468 ; div_frec:frec_Sel|cuenta[0]   ; div_frec:frec_Sel|cuenta[2]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.589      ;
+; 0.468 ; div_frec:frec_Sel|cuenta[24]  ; div_frec:frec_Sel|cuenta[26]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.589      ;
+; 0.468 ; div_frec:frec_Sel|cuenta[6]   ; div_frec:frec_Sel|cuenta[8]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.589      ;
+; 0.468 ; div_frec:frec_Cont|cuenta[2]  ; div_frec:frec_Cont|cuenta[4]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.588      ;
+; 0.468 ; div_frec:frec_Cont|cuenta[8]  ; div_frec:frec_Cont|cuenta[10] ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.588      ;
+; 0.469 ; div_frec:frec_Cont|cuenta[6]  ; div_frec:frec_Cont|cuenta[8]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.589      ;
+; 0.471 ; div_frec:frec_Sel|cuenta[12]  ; div_frec:frec_Sel|cuenta[14]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.591      ;
+; 0.508 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[19]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.629      ;
+; 0.509 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[21]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.630      ;
+; 0.511 ; div_frec:frec_Sel|cuenta[17]  ; div_frec:frec_Sel|cuenta[20]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.632      ;
+; 0.512 ; div_frec:frec_Sel|cuenta[19]  ; div_frec:frec_Sel|cuenta[22]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.633      ;
+; 0.515 ; div_frec:frec_Sel|cuenta[3]   ; div_frec:frec_Sel|cuenta[5]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.636      ;
+; 0.515 ; div_frec:frec_Sel|cuenta[1]   ; div_frec:frec_Sel|cuenta[3]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.636      ;
+; 0.516 ; div_frec:frec_Sel|cuenta[25]  ; div_frec:frec_Sel|cuenta[27]  ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.637      ;
+; 0.516 ; div_frec:frec_Sel|cuenta[5]   ; div_frec:frec_Sel|cuenta[7]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.637      ;
+; 0.516 ; div_frec:frec_Cont|cuenta[3]  ; div_frec:frec_Cont|cuenta[5]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.636      ;
+; 0.516 ; div_frec:frec_Cont|cuenta[1]  ; div_frec:frec_Cont|cuenta[3]  ; clk                       ; clk         ; 0.000        ; 0.036      ; 0.636      ;
+; 0.517 ; div_frec:frec_Sel|cuenta[7]   ; div_frec:frec_Sel|cuenta[9]   ; clk                       ; clk         ; 0.000        ; 0.037      ; 0.638      ;
++-------+-------------------------------+-------------------------------+---------------------------+-------------+--------------+------------+------------+
+
+
+----------------------------------------------
+; Fast 1200mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                      ;
++----------------------------+----------+-------+----------+---------+---------------------+
+; Clock                      ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++----------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack           ; -4.335   ; 0.187 ; N/A      ; N/A     ; -3.000              ;
+;  clk                       ; -4.335   ; 0.296 ; N/A      ; N/A     ; -3.000              ;
+;  div_frec:frec_Cont|salida ; -0.368   ; 0.187 ; N/A      ; N/A     ; -1.487              ;
+;  div_frec:frec_Sel|salida  ; 0.062    ; 0.194 ; N/A      ; N/A     ; -1.487              ;
+; Design-wide TNS            ; -135.608 ; 0.0   ; 0.0      ; 0.0     ; -98.168             ;
+;  clk                       ; -134.588 ; 0.000 ; N/A      ; N/A     ; -89.246             ;
+;  div_frec:frec_Cont|salida ; -1.020   ; 0.000 ; N/A      ; N/A     ; -5.948              ;
+;  div_frec:frec_Sel|salida  ; 0.000    ; 0.000 ; N/A      ; N/A     ; -2.974              ;
++----------------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; seg7[0]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[1]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[2]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[3]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[4]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[5]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg7[6]       ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; gnd_i[0]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; gnd_i[1]      ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; sig_ctrl[0]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; sig_ctrl[1]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; sig_ctrl[2]             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk                     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg7[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.33 V              ; -0.00425 V          ; 0.168 V                              ; 0.058 V                              ; 3.12e-09 s                  ; 2.87e-09 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.33 V             ; -0.00425 V         ; 0.168 V                             ; 0.058 V                             ; 3.12e-09 s                 ; 2.87e-09 s                 ; Yes                       ; Yes                       ;
+; gnd_i[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; gnd_i[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.74e-09 V                   ; 2.37 V              ; -0.0346 V           ; 0.198 V                              ; 0.094 V                              ; 3.14e-10 s                  ; 2.92e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.74e-09 V                  ; 2.37 V             ; -0.0346 V          ; 0.198 V                             ; 0.094 V                             ; 3.14e-10 s                 ; 2.92e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.57e-09 V                   ; 2.37 V              ; -0.00683 V          ; 0.171 V                              ; 0.018 V                              ; 4.97e-10 s                  ; 6.66e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.57e-09 V                  ; 2.37 V             ; -0.00683 V         ; 0.171 V                             ; 0.018 V                             ; 4.97e-10 s                 ; 6.66e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg7[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.33 V              ; -0.00229 V          ; 0.111 V                              ; 0.057 V                              ; 3.78e-09 s                  ; 3.5e-09 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.33 V             ; -0.00229 V         ; 0.111 V                             ; 0.057 V                             ; 3.78e-09 s                 ; 3.5e-09 s                  ; Yes                       ; Yes                       ;
+; gnd_i[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; gnd_i[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.55e-07 V                   ; 2.35 V              ; -0.00221 V          ; 0.097 V                              ; 0.005 V                              ; 4.49e-10 s                  ; 3.85e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.55e-07 V                  ; 2.35 V             ; -0.00221 V         ; 0.097 V                             ; 0.005 V                             ; 4.49e-10 s                 ; 3.85e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.54e-07 V                   ; 2.34 V              ; -0.00774 V          ; 0.109 V                              ; 0.026 V                              ; 6.58e-10 s                  ; 8.24e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.54e-07 V                  ; 2.34 V             ; -0.00774 V         ; 0.109 V                             ; 0.026 V                             ; 6.58e-10 s                 ; 8.24e-10 s                 ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg7[0]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[1]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[2]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[3]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[4]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[5]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; seg7[6]       ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.64 V              ; -0.0113 V           ; 0.208 V                              ; 0.179 V                              ; 2.38e-09 s                  ; 2.23e-09 s                  ; No                         ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.64 V             ; -0.0113 V          ; 0.208 V                             ; 0.179 V                             ; 2.38e-09 s                 ; 2.23e-09 s                 ; No                        ; Yes                       ;
+; gnd_i[0]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; gnd_i[1]      ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.22e-08 V                   ; 2.74 V              ; -0.06 V             ; 0.158 V                              ; 0.08 V                               ; 2.68e-10 s                  ; 2.19e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 2.22e-08 V                  ; 2.74 V             ; -0.06 V            ; 0.158 V                             ; 0.08 V                              ; 2.68e-10 s                 ; 2.19e-10 s                 ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.54e-08 V                   ; 2.7 V               ; -0.00943 V          ; 0.276 V                              ; 0.035 V                              ; 3.19e-10 s                  ; 4.99e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 3.54e-08 V                  ; 2.7 V              ; -0.00943 V         ; 0.276 V                             ; 0.035 V                             ; 3.19e-10 s                 ; 4.99e-10 s                 ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                   ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; clk                       ; clk                       ; 1400     ; 0        ; 0        ; 0        ;
+; div_frec:frec_Cont|salida ; clk                       ; 1        ; 1        ; 0        ; 0        ;
+; div_frec:frec_Sel|salida  ; clk                       ; 1        ; 1        ; 0        ; 0        ;
+; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 11       ; 0        ; 0        ; 0        ;
+; div_frec:frec_Sel|salida  ; div_frec:frec_Sel|salida  ; 2        ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                    ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+; clk                       ; clk                       ; 1400     ; 0        ; 0        ; 0        ;
+; div_frec:frec_Cont|salida ; clk                       ; 1        ; 1        ; 0        ; 0        ;
+; div_frec:frec_Sel|salida  ; clk                       ; 1        ; 1        ; 0        ; 0        ;
+; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; 11       ; 0        ; 0        ; 0        ;
+; div_frec:frec_Sel|salida  ; div_frec:frec_Sel|salida  ; 2        ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 9     ; 9    ;
+; Unconstrained Output Port Paths ; 37    ; 37   ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------------------------------+
+; Clock Status Summary                                                       ;
++---------------------------+---------------------------+------+-------------+
+; Target                    ; Clock                     ; Type ; Status      ;
++---------------------------+---------------------------+------+-------------+
+; clk                       ; clk                       ; Base ; Constrained ;
+; div_frec:frec_Cont|salida ; div_frec:frec_Cont|salida ; Base ; Constrained ;
+; div_frec:frec_Sel|salida  ; div_frec:frec_Sel|salida  ; Base ; Constrained ;
++---------------------------+---------------------------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; gnd_i[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; gnd_i[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; gnd_i[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; gnd_i[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[0]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[1]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[2]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[3]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[4]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[5]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg7[6]     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Thu Nov 03 11:13:05 2022
+Info: Command: quartus_sta Contador_I -c Contador_I
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Contador_I.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name div_frec:frec_Cont|salida div_frec:frec_Cont|salida
+    Info (332105): create_clock -period 1.000 -name div_frec:frec_Sel|salida div_frec:frec_Sel|salida
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.335
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.335            -134.588 clk 
+    Info (332119):    -0.368              -1.020 div_frec:frec_Cont|salida 
+    Info (332119):     0.062               0.000 div_frec:frec_Sel|salida 
+Info (332146): Worst-case hold slack is 0.453
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.453               0.000 div_frec:frec_Cont|salida 
+    Info (332119):     0.465               0.000 div_frec:frec_Sel|salida 
+    Info (332119):     0.744               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -89.246 clk 
+    Info (332119):    -1.487              -5.948 div_frec:frec_Cont|salida 
+    Info (332119):    -1.487              -2.974 div_frec:frec_Sel|salida 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -4.087
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -4.087            -117.542 clk 
+    Info (332119):    -0.218              -0.603 div_frec:frec_Cont|salida 
+    Info (332119):     0.159               0.000 div_frec:frec_Sel|salida 
+Info (332146): Worst-case hold slack is 0.402
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.402               0.000 div_frec:frec_Cont|salida 
+    Info (332119):     0.416               0.000 div_frec:frec_Sel|salida 
+    Info (332119):     0.691               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -89.246 clk 
+    Info (332119):    -1.487              -5.948 div_frec:frec_Cont|salida 
+    Info (332119):    -1.487              -2.974 div_frec:frec_Sel|salida 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -1.385
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.385             -26.906 clk 
+    Info (332119):     0.397               0.000 div_frec:frec_Cont|salida 
+    Info (332119):     0.592               0.000 div_frec:frec_Sel|salida 
+Info (332146): Worst-case hold slack is 0.187
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.187               0.000 div_frec:frec_Cont|salida 
+    Info (332119):     0.194               0.000 div_frec:frec_Sel|salida 
+    Info (332119):     0.296               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -64.734 clk 
+    Info (332119):    -1.000              -4.000 div_frec:frec_Cont|salida 
+    Info (332119):    -1.000              -2.000 div_frec:frec_Sel|salida 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4757 megabytes
+    Info: Processing ended: Thu Nov 03 11:13:07 2022
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

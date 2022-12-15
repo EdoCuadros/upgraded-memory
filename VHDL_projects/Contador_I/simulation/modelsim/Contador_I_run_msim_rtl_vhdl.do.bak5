@@ -1,0 +1,17 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/anti_rebote.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Contador.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Deco.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/div_frec.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Multiplexor.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Selector.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/XS3_alg.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Contador_I.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Control.vhd}
+

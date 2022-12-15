@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Multiplexor is
+	port(
+	
+		mul : in std_logic_vector(7 downto 0);
+		sel : in std_logic;
+		
+		spl : out std_logic);
+		
+end Multiplexor;
+
+architecture seleccion of Multiplexor is 
+
+begin
+	
+	with sel select
+		spl <= 	mul(7 downto 4) when "1",
+					mul(3 downto 0) when "0";
+
+end seleccion;
+					
+					

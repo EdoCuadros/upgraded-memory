@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Deco is
+	port 
+	(
+		cuenta : in integer;
+		
+		seg7 : out std_logic_vector(6 downto 0));
+		
+end Deco;
+
+
+architecture decodificar of Deco is 
+
+	
+begin
+

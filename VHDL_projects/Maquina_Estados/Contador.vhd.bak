@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Contador is
+	port(
+		clk : in std_logic;
+		
+		sig_cont : out std_logic_vector(3 downto 0));
+end Contador;
+
+architecture contar of Contador is
+
+	signal J0 : std_logic := '1';
+	signal J1, J2, J3, Q0, Q1, Q2, Q3 : std_logic := '0';
+	
+	component JK
+		port(
+			J,Q,clk : in std_logic;
+		
+			Q : out std_logic := '0');
+	end component;
+	
+begin
+
+	
+
+	
+end contar;

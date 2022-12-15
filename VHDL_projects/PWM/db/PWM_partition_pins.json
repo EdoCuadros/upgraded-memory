@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "cuenta_BCD[0]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[1]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[2]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[3]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[5]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[6]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_BCD[7]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[0]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[5]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[3]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[2]",
+					"strict" : false
+				},
+				{
+					"name" : "cuenta_bin[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

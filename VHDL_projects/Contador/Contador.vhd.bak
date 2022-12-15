@@ -1,0 +1,46 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Contador is
+	port 
+	(
+		reset : in std_logic;
+		clk : in std_logic;
+		control : in std_logic;
+		
+		Q : out std_logic_vector(5 downto 0));
+		
+		
+end Contador;
+
+architecture contar of Contador is
+
+	signal cont : std_logic_vector(5 downto 0) := "000000";
+	
+begin
+	
+	process(reset,clk)
+	
+	begin
+	
+		if reset='1' then
+			
+			cont <= "000000";
+		
+		elsif cont = "111011" then
+		
+			cont <= "000000";
+		
+		else 
+			cont <= cont + 1;
+			
+		end if;
+	end process;
+
+	
+	Q <= cont;
+	
+end contar;

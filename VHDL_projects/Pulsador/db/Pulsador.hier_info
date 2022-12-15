@@ -1,0 +1,5 @@
+|pulsador
+p => q.CLK
+v <= q.DB_MAX_OUTPUT_PORT_TYPE
+
+

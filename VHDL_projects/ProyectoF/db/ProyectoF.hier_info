@@ -1,0 +1,93 @@
+|Principal
+clk => div_frec:ent_div.clk1
+clk => temp_sw.DATAIN
+s[0] => comb.IN0
+s[0] => m_c[0].DATAIN
+s[1] => comb.IN1
+s[1] => m_c[1].DATAIN
+sw[0] => temp_sw.PRESET
+sw[1] => temp_sw.LATCH_ENABLE
+pl <= pl.DB_MAX_OUTPUT_PORT_TYPE
+m_en <= m_en.DB_MAX_OUTPUT_PORT_TYPE
+m_c[0] <= s[0].DB_MAX_OUTPUT_PORT_TYPE
+m_c[1] <= s[1].DB_MAX_OUTPUT_PORT_TYPE
+light <= div_frec:ent_div.f
+
+
+|Principal|div_frec:ent_div
+clk1 => salida.CLK
+clk1 => cuenta[0].CLK
+clk1 => cuenta[1].CLK
+clk1 => cuenta[2].CLK
+clk1 => cuenta[3].CLK
+clk1 => cuenta[4].CLK
+clk1 => cuenta[5].CLK
+clk1 => cuenta[6].CLK
+clk1 => cuenta[7].CLK
+clk1 => cuenta[8].CLK
+clk1 => cuenta[9].CLK
+clk1 => cuenta[10].CLK
+clk1 => cuenta[11].CLK
+clk1 => cuenta[12].CLK
+clk1 => cuenta[13].CLK
+clk1 => cuenta[14].CLK
+clk1 => cuenta[15].CLK
+clk1 => cuenta[16].CLK
+clk1 => cuenta[17].CLK
+clk1 => cuenta[18].CLK
+clk1 => cuenta[19].CLK
+clk1 => cuenta[20].CLK
+clk1 => cuenta[21].CLK
+clk1 => cuenta[22].CLK
+clk1 => cuenta[23].CLK
+clk1 => cuenta[24].CLK
+clk1 => cuenta[25].CLK
+clk1 => cuenta[26].CLK
+clk1 => cuenta[27].CLK
+Nciclos[0] => Equal0.IN35
+Nciclos[1] => Equal0.IN34
+Nciclos[2] => Equal0.IN33
+Nciclos[3] => Equal0.IN32
+Nciclos[4] => Equal0.IN31
+Nciclos[5] => Equal0.IN30
+Nciclos[6] => Equal0.IN29
+Nciclos[7] => Equal0.IN28
+Nciclos[8] => Equal0.IN27
+Nciclos[9] => Equal0.IN26
+Nciclos[10] => Equal0.IN25
+Nciclos[11] => Equal0.IN24
+Nciclos[12] => Equal0.IN23
+Nciclos[13] => Equal0.IN22
+Nciclos[14] => Equal0.IN21
+Nciclos[15] => Equal0.IN20
+Nciclos[16] => Equal0.IN19
+Nciclos[17] => Equal0.IN18
+Nciclos[18] => Equal0.IN17
+Nciclos[19] => Equal0.IN16
+Nciclos[20] => Equal0.IN15
+Nciclos[21] => Equal0.IN14
+Nciclos[22] => Equal0.IN13
+Nciclos[23] => Equal0.IN12
+Nciclos[24] => Equal0.IN11
+Nciclos[25] => Equal0.IN10
+Nciclos[26] => Equal0.IN9
+Nciclos[27] => Equal0.IN8
+Nciclos[28] => Equal0.IN7
+Nciclos[29] => Equal0.IN6
+Nciclos[30] => Equal0.IN5
+Nciclos[31] => Equal0.IN4
+f <= salida.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Principal|D:FF0
+D => qin.DATAIN
+clk => qin.CLK
+Q <= qin.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Principal|D:FF1
+D => qin.DATAIN
+clk => qin.CLK
+Q <= qin.DB_MAX_OUTPUT_PORT_TYPE
+
+

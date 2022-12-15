@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Nov 22 11:24:11 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Maquina_Estados
+Top-level Entity Name : Principal
+Family : Cyclone IV E
+Device : EP4CE10E22C8
+Timing Models : Final
+Total logic elements : 195 / 10,320 ( 2 % )
+    Total combinational functions : 180 / 10,320 ( 2 % )
+    Dedicated logic registers : 119 / 10,320 ( 1 % )
+Total registers : 119
+Total pins : 14 / 92 ( 15 % )
+Total virtual pins : 0
+Total memory bits : 0 / 423,936 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

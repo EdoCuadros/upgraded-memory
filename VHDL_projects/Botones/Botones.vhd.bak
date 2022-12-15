@@ -1,0 +1,34 @@
+ library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Botones is
+	port(
+		btn_i : in std_logic_vector(3 downto 0);
+		
+		displays : out std_logic_vector(3 downto 0);
+		val_display : out std_logic_vector(6 downto 0));
+		
+end Botones;
+
+architecture pulsar of Botones is
+
+begin
+
+process(btn_i)
+
+begin
+	
+	displays <= btn_i;
+	
+	with btn_i select
+		val_display <= "1000000" when "1110",
+							"1111001" when "1101",
+							"0100100" when "1011",
+							"0110000" when "0111",
+							"1111111" when others;
+
+end pulsar;
+

@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity JK is
+	port(
+		J, clk : in std_logic;
+		
+		Q : out std_logic := '0');
+		
+end JK;
+
+architecture ciclo of JK is
+
+begin
+
+	process(clk)
+	
+	begin
+	
+		if rising_edge(clk) then
+			if J = 1 then
+				Q <= not Q;
+			end if;
+		end if;
+	end process;
+end ciclo;
+
+
+		

@@ -1,0 +1,53 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+
+entity XS3_alg is
+	port 
+	(
+		cuenta_bin : in std_logic_vector(5 downto 0);
+		clk : in  std_logic;
+		
+		cuenta_BCD : out std_logic_vector(7 downto 0));
+		
+
+				
+end XS3_alg;
+
+architecture algoritmo of XS3_alg is
+
+	signal vect : std_logic_vector(7 downto 0) := "00000000";
+	
+	signal decenas : std_logic_vector(3 downto 0);
+	signal unidades : std_logic_vector(3 downto 0);
+	
+begin
+	
+	process(clk)
+	
+	if rising_edge(clk) then
+	
+		for i in 0 to 5 loop
+		
+			decenas <= 	vect(7 downto 4);
+			unidades <= vect(3 downto 0);
+			
+			if decenas > "0101" then
+				decenas <= decenas + "0011";
+			end if;
+			
+			if unidades > "0101" then
+				unidades <= unidades + "0011";
+			end if;
+			
+			vect <= decenas & unidades;
+			
+			vect <= vect(6 downto 0) & cuenta_bin(5-i);
+			
+		end loop;
+	end process;
+	
+end algoritmo;

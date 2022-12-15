@@ -1,0 +1,139 @@
+# Reading pref.tcl
+# do Maquina_Estados_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/div_frec.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:02 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/div_frec.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity div_frec
+# -- Compiling architecture divisor of div_frec
+# End time: 11:36:02 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/JK.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/JK.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity JK
+# -- Compiling architecture ciclo of JK
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Memoria.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Memoria.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Memoria
+# -- Compiling architecture memorizar of Memoria
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Multiplexor.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Multiplexor.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Multiplexor
+# -- Compiling architecture seleccion of Multiplexor
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Selector.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Selector.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Selector
+# -- Compiling architecture seleccion of Selector
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Deco.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Deco.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Deco
+# -- Compiling architecture decodificar of Deco
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Principal.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Principal.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Principal
+# -- Compiling architecture func of Principal
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Maquina_Estados.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/Maquina_Estados.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Maquina_Estados
+# -- Compiling architecture cambio of Maquina_Estados
+# End time: 11:36:03 on Nov 22,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Maquina_Estados/anti_rebote.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:36:03 on Nov 22,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/Maquina_Estados/anti_rebote.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity anti_rebote
+# -- Compiling architecture registro of anti_rebote
+# End time: 11:36:04 on Nov 22,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 

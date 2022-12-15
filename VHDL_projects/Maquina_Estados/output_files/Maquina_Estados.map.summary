@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Nov 22 11:24:05 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Maquina_Estados
+Top-level Entity Name : Principal
+Family : Cyclone IV E
+Total logic elements : 202
+    Total combinational functions : 180
+    Dedicated logic registers : 119
+Total registers : 119
+Total pins : 14
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

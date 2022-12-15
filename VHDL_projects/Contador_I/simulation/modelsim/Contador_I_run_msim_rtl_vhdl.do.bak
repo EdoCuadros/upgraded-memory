@@ -1,0 +1,12 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Contador.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/div_frec.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/XS3_alg.vhd}
+vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/Contador_I/Contador_I.vhd}
+

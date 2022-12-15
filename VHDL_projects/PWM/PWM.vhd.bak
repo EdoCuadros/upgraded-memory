@@ -1,0 +1,127 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity PWM is
+
+	port(
+		-- Input ports
+		up : in std_logic := '1';
+		down : in std_logic:= '1';
+		clk : in std_logic;
+
+		-- Output ports
+		pwm : out std_logic);
+
+end PWM;
+
+architecture ModPWM of PWM is
+
+-- * Declare las señales que considere necesarias. Estas señales saldrán de unas instancias y entrarán
+-- a otras.
+
+-- * Declare el componente del divisor de frecuencia y del antirrebote.
+-- * Declare el componente del modulador y de la señal PWM.
+
+	signal f : std_logic;
+--	signal f_2 : std_logic;
+	
+--	signal ciclos10s : integer := 25000000;
+	signal ciclosM : integer := 100; --señal de muestreo del boton, deseada
+	signal ciclos2s : integer := 1600;
+	
+	
+	signal senalM : std_logic := '1';
+	signal senal2s : std_logic := '0';
+	signal clean_up : std_logic;
+	signal clean_down : std_logic;
+
+	signal tau : integer;
+
+	component div_frec
+		port(
+		clk1 : in  std_logic;
+		Nciclos1 : in integer := 10;
+		f1 : out std_logic);
+
+	end component;
+
+	component anti_rebote
+		port(
+		clk2: in  std_logic;
+		btn2: in std_logic;
+
+		btn_out2: out std_logic);
+
+	end component;
+
+	component Modulador
+		port(
+		btn_up3: in  std_logic;
+		btn_down3: in  std_logic;
+
+		tau_f3: out integer);
+
+	end component;
+
+	component senal_PWM
+		port(
+		tau4: in  integer;
+		clk_2seg4: in  std_logic;
+		salida_f4: out std_logic);
+
+	end component;
+
+	begin
+
+	-- * Cree instancias del divisor de frecuencia para generar la señal de muestreo de los antirrebote
+	--   y la señal de reloj del registro que almacenará el conteo del pwm.
+
+	-- * Cree instancias del antirrebote para el pulsador de aumento y de reducción de tau.
+
+	-- * Cree la instancia del modulador y de la señal PWM.
+
+	-- * Conecte las instancias con las señales internas (intermedias) que declaró.
+
+	divisor05s : div_frec
+		port map(
+		clk1 => clk,
+		Nciclos1 => ciclosM,
+		f1 => senalM);
+
+	divisor2s : div_frec
+		port map(
+		clk1 => clk,
+		Nciclos1 => ciclos2s,
+		f1 => senal2s);
+
+	antirreboteup : anti_rebote
+	port map(
+		clk2 => senalM,
+		btn2 => up,
+		btn_out2 => clean_up);
+
+	antirrebotedown : anti_rebote
+		port map(
+		clk2 => senalM,
+		btn2 => down,
+		btn_out2 => clean_down);
+
+	moduldors : Modulador
+		port map(
+		btn_up3 => clean_up,
+		btn_down3 => clean_down,
+		tau_f3 => tau);
+
+
+	senal : senal_PWM
+		port map(
+		tau4 => tau,
+		clk_2seg4 => senal2s,
+		salida_f4 => f);
+
+	pwm <= f;
+
+end ModPWM;

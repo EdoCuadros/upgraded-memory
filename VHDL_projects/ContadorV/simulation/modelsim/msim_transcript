@@ -1,0 +1,57 @@
+# Reading pref.tcl
+# do ContadorV_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/ContadorV/JK.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:55:03 on Nov 24,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/ContadorV/JK.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity JK
+# -- Compiling architecture ciclo of JK
+# End time: 09:55:03 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:55:03 on Nov 24,2022
+# vcom -reportprogress 300 -93 -work work C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Contador
+# -- Compiling architecture contar of Contador
+# ** Error: C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd(35): (vcom-1436) Actual expression (prefix expression) of formal "clk" is not globally static.
+# ** Error: C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd(37): (vcom-1436) Actual expression (prefix expression) of formal "clk" is not globally static.
+# ** Error: C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd(39): (vcom-1436) Actual expression (prefix expression) of formal "clk" is not globally static.
+# ** Note: C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd(43): VHDL Compiler exiting
+# End time: 09:55:03 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./ContadorV_run_msim_rtl_vhdl.do line 9
+# C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/intelFPGA_lite/20.1/projects/ContadorV/Contador.vhd}"
+vsim rtl_work.contador
+# vsim rtl_work.contador 
+# Start time: 09:55:06 on Nov 24,2022
+# Loading std.standard
+# ** Error: (vsim-3173) Entity 'C:/intelFPGA_lite/20.1/projects/ContadorV/simulation/modelsim/rtl_work.contador' has no architecture.
+# Error loading design
+# End time: 09:55:06 on Nov 24,2022, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0

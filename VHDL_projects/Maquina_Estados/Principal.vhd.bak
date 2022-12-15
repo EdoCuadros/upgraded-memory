@@ -1,0 +1,49 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity Principal is
+	port(
+		sig_ctrl : in std_logic_vector(1 downto 0);
+		clk : in std_logic;
+		
+		seg7 : out std_logic_vector(6 downto 0));
+end Maquina_Estados;
+
+architecture func of Principal is
+	
+	component Maquina_Estados 
+		port(
+			sig_ctrl : in std_logic_vector(1 downto 0);
+			clk : in std_logic;
+			
+			estados_bin : out std_logic_vector(3 downto 0));
+	end component;
+	
+	component JK
+			port(
+				J,K,clk : in std_logic;
+			
+				Q : out std_logic);
+		end component;
+		
+	component Memoria
+		port(
+		estados_bin : in std_logic_vector(3 downto 0);
+		
+		vect_mem : out std_logic_vector(15 downto 0));
+	end component;
+	
+	component Multiplexor
+		port(
+	
+		mul : in std_logic_vector(15 downto 0);
+		sel: in std_logic_vector(1 downto 0);
+		
+		BCD_7seg : out std_logic_vector(3 downto 0));
+	end component;
+	
+
+end func;
