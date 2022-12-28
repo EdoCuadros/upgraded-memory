@@ -1,3 +1,1 @@
-Repositorio personal
-Eduardo Cuadros
-
+Repository for personal and academic stuff
