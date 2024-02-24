@@ -1,0 +1,17 @@
+/* Highlight */
+
+.theme-dark {
+--TextColorHighlightMarkEditor: #f5c662; /* == */
+--TextColorHighlightMarkPreview: #f5c662; /* == */
+}
+
+/* Highlight */
+.cm-s-obsidian span.cm-formatting-highlight, .cm-s-obsidian span.cm-highlight {
+  color: var(--TextColorHighlightMarkEditor);
+  background-color: var(--background-primary);
+}
+
+.markdown-preview-view mark { 
+  color: var(--TextColorHighlightMarkPreview);
+  background-color: var(--background-primary);
+}

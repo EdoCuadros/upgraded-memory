@@ -1,0 +1,6 @@
+- [[031 Introducción]]
+- [[032 Aproximaciones y errores de redondeo]]
+- [[033 Raíces de ecuaciones no lineales]]
+- [[034 Interpolación por mínimos cuadrados]]
+- [[035 Integración Numérica]]
+- 

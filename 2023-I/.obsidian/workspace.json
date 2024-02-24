@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "ba63b119afaa6dfe",
+    "type": "split",
+    "children": [
+      {
+        "id": "7799329fbae840b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0349d2cfe0ccc3ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Journal/Daily/2024-02-14.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a6f343dfbae31012",
+    "type": "split",
+    "children": [
+      {
+        "id": "6f9c0890252c217d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77dc3ed548a0c343",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7ce291a99f349a17",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d2044d266399d556",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "634f5dc95071fec2",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 267.5
+  },
+  "right": {
+    "id": "61112d3a248cf5cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "e2fcec7fc0980bb1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3383ea6eaaad2343",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Journal/Daily/2024-02-14.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "eda686bb72403ddf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Journal/Daily/2024-02-14.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a10f9c0400401a53",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "bd3b80a068447349",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Journal/Daily/2024-02-14.md"
+              }
+            }
+          },
+          {
+            "id": "2567628feff907d8",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "mermaid-tools:Open Mermaid Toolbar": false
+    }
+  },
+  "active": "0349d2cfe0ccc3ce",
+  "lastOpenFiles": [
+    "Pasted image 20240214152820.png",
+    "Journal/Daily/2024-02-12.md",
+    "Journal/Daily/2024-02-14.md",
+    "Pasted image 20240212151043.png",
+    "Pasted image 20240212122709.png",
+    "Robótica/TAREAS.md",
+    "Untitled.md",
+    "Robótica/Presentación.md",
+    "Robótica/Terminología.md",
+    "Robótica/Inventario.md",
+    "diferencial.md",
+    "Control/013 Señales y Sistemas.md",
+    "Control/012 Introducción Lab Control.md",
+    "Cosmología/Propuesta proyecto.md",
+    "Robótica",
+    "Control/Sliding Mode Control (SMC).md",
+    "Control/010 Index Control.md",
+    "Control/015 Root Locus design.md",
+    "Control/014 Criterios de diseño.md",
+    "Control/019 Talleres.md",
+    "assets/Imagenes/Pasted image 20231030155052.png",
+    "assets/Imagenes/Pasted image 20231030154746.png",
+    "TDC/Sliding Mode Control (SMC).md",
+    "TDC",
+    "PAI/Tarea Exploración de Onshape.md",
+    "assets/Imagenes/Pasted image 20230509192211.png",
+    "assets/Imagenes/Pasted image 20230518080205.png",
+    "assets/Imagenes/Pasted image 20230526073944.png",
+    "Control/Análisis de incertidumbre.md",
+    "PAI",
+    "Micros/Uso de LCD.md",
+    "Micros/023 PIC18F4550.md",
+    "Micros/021 Definiciones.md",
+    "Micros/Dia.md",
+    "Micros/026 Interrupciones.md",
+    "Micros/Untitled.md",
+    "assets/Documentos/Datasheet PIC18.pdf",
+    "assets/Imagenes/Pasted image 20230512150222.png",
+    "Micros/Untitled",
+    "Cosmología",
+    "assets/Imagenes/RootLocusDesign1.jpg",
+    "assets/Imagenes/Diagrama.jpg",
+    "Seguridad Informática",
+    "Templates",
+    "Journal",
+    "Journal/Tracker",
+    "Untitled.canvas"
+  ]
+}

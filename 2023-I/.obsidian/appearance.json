@@ -1,0 +1,12 @@
+{
+  "accentColor": "#f5c662",
+  "cssTheme": "Things",
+  "baseFontSize": 23,
+  "baseFontSizeAction": false,
+  "enabledCssSnippets": [
+    "highlight",
+    "images",
+    "big-math"
+  ],
+  "theme": "obsidian"
+}

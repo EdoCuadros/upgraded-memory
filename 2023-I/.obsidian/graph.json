@@ -1,0 +1,65 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:Control",
+      "color": {
+        "a": 1,
+        "rgb": 5404128
+      }
+    },
+    {
+      "query": "path:Micros",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "path:TPI",
+      "color": {
+        "a": 1,
+        "rgb": 14883868
+      }
+    },
+    {
+      "query": "path:Sensores",
+      "color": {
+        "a": 1,
+        "rgb": 5431378
+      }
+    },
+    {
+      "query": "path:MN",
+      "color": {
+        "a": 1,
+        "rgb": 15342276
+      }
+    },
+    {
+      "query": "path:\"Seguridad Informática\"",
+      "color": {
+        "a": 1,
+        "rgb": 5419488
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": -0.5,
+  "nodeSizeMultiplier": 0.465488936473947,
+  "lineSizeMultiplier": 0.913169164882227,
+  "collapse-forces": false,
+  "centerStrength": 0.4875,
+  "repelStrength": 10.6666666666667,
+  "linkStrength": 1,
+  "linkDistance": 181,
+  "scale": 0.950348278381135,
+  "close": true
+}

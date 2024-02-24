@@ -1,0 +1,5 @@
+- Cristal de 4 MHz como reloj. Conexión de dos condensadores y una resistencia (ver datasheet).
+- Interrupción 1: Pulsador que pare la cuenta por 5 segundos y retome en el valor.
+- Interrupción 2: Interruptor que con 0 lógico realice conteo incremental y con 1 lógico, conteo decremental.
+- Led RGB con ciclo: magenta,azul. cyan, verde, amarillo y rojo, que se muestren para los digitos del 1 al 6 respectivamente. Contador pausado, color blanco y cuando se reinicie mostrar negro por 2 s.
+- Interrupción 3: Pulsador para reiniciar conteo en cualquier momento.
