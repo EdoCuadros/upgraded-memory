@@ -35,10 +35,12 @@ def update_data(i):
     sensor_data[4].append(sensor.light_bumper_front_right)
     sensor_data[5].append(sensor.light_bumper_right)
     cnt += 1
-
+    if len(sensor_data[0]) > 100:
+        for i in range(6):
+            sensor_data[i].pop(0)
 
 if __name__ == "__main__":
-    port = '/dev/tty.usbserial-DA01NX3Z'
+    port = '/dev/ttyUSB0'
     baud = {
         'default': 115200,
         'alt': 19200  # shouldn't need this unless you accidentally set it to this

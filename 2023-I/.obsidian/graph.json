@@ -4,7 +4,7 @@
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
-  "showOrphans": true,
+  "showOrphans": false,
   "collapse-color-groups": false,
   "colorGroups": [
     {
@@ -48,6 +48,13 @@
         "a": 1,
         "rgb": 5419488
       }
+    },
+    {
+      "query": "path:\"Práctica Robótica movil\"  ",
+      "color": {
+        "a": 1,
+        "rgb": 6300351
+      }
     }
   ],
   "collapse-display": false,
@@ -60,6 +67,6 @@
   "repelStrength": 10.6666666666667,
   "linkStrength": 1,
   "linkDistance": 181,
-  "scale": 0.950348278381135,
+  "scale": 0.6778601170159971,
   "close": true
 }
